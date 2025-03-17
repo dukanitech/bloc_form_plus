@@ -1,0 +1,42 @@
+name: bloc_form
+
+on:
+  push:
+    paths:
+      - "packages/bloc_form/**"
+      - ".github/workflows/bloc_form.yaml"
+
+  pull_request:
+    paths:
+      - "packages/bloc_form/**"
+      - ".github/workflows/bloc_form.yaml"
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: packages/bloc_form
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.2'
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: pub get
+
+      - name: Format
+        run: dart format --set-exit-if-changed .
+
+      - name: Analyze
+        run: dart analyze --fatal-infos --fatal-warnings .
+
+      - name: Run Tests
+        run: dart test

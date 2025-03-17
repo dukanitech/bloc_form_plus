@@ -1,0 +1,19 @@
+name: flutter_bloc_form_example
+description: flutter_bloc_form example
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc_form: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
