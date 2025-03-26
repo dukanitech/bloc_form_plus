@@ -188,7 +188,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ),
                     ),
                     Text(
-                      'by GiancarloCode',
+                      'by dukanitech',
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -249,7 +249,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   }
 
   _launchGitHubURL() async {
-    const url = 'https://github.com/GiancarloCode/bloc_form';
+    const url = 'https://github.com/dukanitech/bloc_form';
     if (await canLaunch(url)) {
       await launch(url);
     }

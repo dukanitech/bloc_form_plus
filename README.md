@@ -8,7 +8,7 @@
 
 Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface.
 
-# [🔥👉 Documentation and Tutorials 👈🔥](https://giancarlocode.github.io/bloc_form/)
+# [🔥👉 Documentation and Tutorials 👈🔥](https://dukanitech.github.io/bloc_form/)
 
 
 - [x] Synchronous Field Validation
@@ -36,34 +36,34 @@ Easy Form State Management using BLoC pattern. Separate the Form State and Busin
         <tr>
             <td> 
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form1.gif" width="230"/>
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form1.gif" width="230"/>
                 </a>
             </td>    
             <td>   
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form2.gif" width="230"/>                   
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form2.gif" width="230"/>                   
                 </a>
             </td>
              <td>   
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form3.gif" width="230"/>                   
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form3.gif" width="230"/>                   
                 </a>
             </td>        
         </tr>
         <tr>
             <td> 
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form4.gif" width="230"/>
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form4.gif" width="230"/>
                 </a>
             </td>    
             <td>   
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form5.gif" width="230"/>                   
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form5.gif" width="230"/>                   
                 </a>
             </td>
             <td>   
                 <a>
-                    <img src="https://raw.githubusercontent.com/GiancarloCode/bloc_form/master/screenshots/bloc_form6.gif" width="230"/>                   
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form6.gif" width="230"/>                   
                 </a>
             </td>            
         </tr>
