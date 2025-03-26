@@ -1,9 +1,9 @@
 name: bloc_form
 description: 'Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface. Async Validation, Progress, Dynamic fields, and more.'
 version: 0.1.0
-homepage: 'https://github.com/GiancarloCode/bloc_form/tree/master/packages/bloc_form'
-repository: 'https://github.com/GiancarloCode/bloc_form/tree/master/packages/bloc_form'
-issue_tracker: 'https://github.com/GiancarloCode/bloc_form/issues'
+homepage: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form'
+repository: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form'
+issue_tracker: 'https://github.com/dukanitech/bloc_form/issues'
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
