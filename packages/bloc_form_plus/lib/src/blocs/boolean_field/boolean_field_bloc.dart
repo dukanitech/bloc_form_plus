@@ -77,7 +77,7 @@ class BooleanFieldBloc<ExtraData> extends SingleFieldBloc<bool, bool,
 
   /// Set the `value` to `false` of the current state.
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   @override
   void clear() => updateInitialValue(false);
 }

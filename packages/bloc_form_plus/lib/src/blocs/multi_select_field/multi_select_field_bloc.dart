@@ -131,12 +131,12 @@ class MultiSelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<
   ///
   /// If [value] is `null` it will be `[]`.
   ///
-  /// {@macro bloc_forms.field_bloc.itemsWithoutDuplicates}
+  /// {@macro bloc_form_plus.field_bloc.itemsWithoutDuplicates}
   ///
   /// If you want to add or remove elements from `value`
   /// of the current state, use [select] or [deselect].
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   @override
   void updateValue(List<Value> value) => super.updateValue(value);
 
@@ -145,17 +145,17 @@ class MultiSelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<
   ///
   /// If [value] is `null` it will be `[]`.
   ///
-  /// {@macro bloc_forms.field_bloc.itemsWithoutDuplicates}
+  /// {@macro bloc_form_plus.field_bloc.itemsWithoutDuplicates}
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   @override
   void updateInitialValue(List<Value> value) => super.updateInitialValue(value);
 
   /// Add [valueToSelect] to the `value` of the current state.
   ///
-  /// {@macro bloc_forms.field_bloc.itemsWithoutDuplicates}
+  /// {@macro bloc_form_plus.field_bloc.itemsWithoutDuplicates}
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   void select(Value valueToSelect) {
     var newValue = state.value;
     newValue =
@@ -177,9 +177,9 @@ class MultiSelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<
 
   /// Remove [valueToDeselect] from the `value` of the current state.
   ///
-  /// {@macro bloc_forms.field_bloc.itemsWithoutDuplicates}
+  /// {@macro bloc_form_plus.field_bloc.itemsWithoutDuplicates}
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   void deselect(Value valueToDeselect) {
     var newValue = state.value;
     newValue = [...newValue]..remove(valueToDeselect);

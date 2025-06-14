@@ -249,12 +249,12 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
         _fieldBlocs = fieldBlocs;
 
   /// Returns a [FormBlocLoading]
-  /// {@template bloc_forms.copy_to_bloc_form_state}
+  /// {@template bloc_form_plus.copy_to_bloc_form_state}
   /// state with the properties
   /// of the current state.
   /// {@endtemplate}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocLoading}
+  /// {@macro bloc_form_plus.form_state.FormBlocLoading}
   FormBlocState<SuccessResponse, FailureResponse> toLoading({
     double? progress,
   }) {
@@ -272,9 +272,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocLoadFailed]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocLoadFailed}
+  /// {@macro bloc_form_plus.form_state.FormBlocLoadFailed}
   FormBlocState<SuccessResponse, FailureResponse> toLoadFailed(
       {FailureResponse? failureResponse}) {
     final state = this;
@@ -291,9 +291,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocLoaded]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocLoaded}
+  /// {@macro bloc_form_plus.form_state.FormBlocLoaded}
   FormBlocState<SuccessResponse, FailureResponse> toLoaded() => FormBlocLoaded(
         isValidByStep: _isValidByStep,
         isEditing: isEditing,
@@ -302,9 +302,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
       );
 
   /// Returns a [FormBlocSubmitting]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocSubmitting}
+  /// {@macro bloc_form_plus.form_state.FormBlocSubmitting}
   ///
   /// [progress] must be greater than or equal to 0.0 and less than or equal to 1.0.
   ///
@@ -329,9 +329,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocSuccess]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocSuccess}
+  /// {@macro bloc_form_plus.form_state.FormBlocSuccess}
   FormBlocState<SuccessResponse, FailureResponse> toSuccess({
     SuccessResponse? successResponse,
     bool? canSubmitAgain,
@@ -351,9 +351,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocFailure]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocFailure}
+  /// {@macro bloc_form_plus.form_state.FormBlocFailure}
   FormBlocState<SuccessResponse, FailureResponse> toFailure({
     FailureResponse? failureResponse,
   }) {
@@ -371,9 +371,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocSubmissionCancelled]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocSubmissionCancelled}
+  /// {@macro bloc_form_plus.form_state.FormBlocSubmissionCancelled}
   FormBlocState<SuccessResponse, FailureResponse> toSubmissionCancelled() =>
       FormBlocSubmissionCancelled(
         isValidByStep: _isValidByStep,
@@ -383,9 +383,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
       );
 
   /// Returns a [FormBlocDeleteFailed]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocDeleteFailed}
+  /// {@macro bloc_form_plus.form_state.FormBlocDeleteFailed}
   FormBlocState<SuccessResponse, FailureResponse> toDeleteFailed(
       {FailureResponse? failureResponse}) {
     final state = this;
@@ -402,9 +402,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocDeleteSuccessful]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocDeleteSuccessful}
+  /// {@macro bloc_form_plus.form_state.FormBlocDeleteSuccessful}
   FormBlocState<SuccessResponse, FailureResponse> toDeleteSuccessful(
       {SuccessResponse? successResponse}) {
     final state = this;
@@ -421,9 +421,9 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 
   /// Returns a [FormBlocUpdatingFields]
-  /// {@macro bloc_forms.copy_to_bloc_form_state}
+  /// {@macro bloc_form_plus.copy_to_bloc_form_state}
   ///
-  /// {@macro bloc_forms.form_state.FormBlocUpdatingFields}
+  /// {@macro bloc_form_plus.form_state.FormBlocUpdatingFields}
   FormBlocState<SuccessResponse, FailureResponse> toUpdatingFields(
       {double? progress}) {
     final state = this;
@@ -599,13 +599,13 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   }
 }
 
-/// {@template bloc_forms.form_state.FormBlocLoading}
+/// {@template bloc_form_plus.form_state.FormBlocLoading}
 /// It is the state when you need to pre/fill the
 /// `fieldBlocs` usually with asynchronous data.
 /// The previous state must be [FormBlocLoading].
 /// {@endtemplate}
 ///
-/// {@template bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@template bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 ///
 /// This class should not be used directly, instead use
 /// {@endtemplate}
@@ -644,14 +644,14 @@ class FormBlocLoading<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocLoadFailed}
+/// {@template bloc_form_plus.form_state.FormBlocLoadFailed}
 /// It is the state when you failed to pre/fill the
 /// `fieldBlocs`. The previous state must be [FormBlocLoading].
 ///
 /// It has [failureResponse] to indicate more details.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toLoadFailed].
 class FormBlocLoadFailed<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -688,11 +688,11 @@ class FormBlocLoadFailed<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocLoaded}
+/// {@template bloc_form_plus.form_state.FormBlocLoaded}
 /// It is the state when you can `submit` the [FormBloc].
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toLoaded].
 class FormBlocLoaded<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse> {
@@ -717,14 +717,14 @@ class FormBlocLoaded<SuccessResponse, FailureResponse>
       ];
 }
 
-/// {@template bloc_forms.form_state.FormBlocSubmitting}
+/// {@template bloc_form_plus.form_state.FormBlocSubmitting}
 /// It is the state when the [FormBloc] is submitting.
 /// It is called automatically when [FormBloc.submit]
 /// is called successfully, and usually is used to
 /// update the submission progress.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toSubmitting].
 class FormBlocSubmitting<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -769,14 +769,14 @@ class FormBlocSubmitting<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocSuccess}
+/// {@template bloc_form_plus.form_state.FormBlocSuccess}
 /// It is the state when the form is submitted successfully.
 /// The previous state must be [FormBlocSubmitting].
 ///
 /// It has [SuccessResponse] to indicate more details.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toSuccess].
 class FormBlocSuccess<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -820,14 +820,14 @@ class FormBlocSuccess<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocFailure}
+/// {@template bloc_form_plus.form_state.FormBlocFailure}
 /// It is the state when the form are submitting and fail.
 /// The previous state must be [FormBlocSubmitting].
 ///
 /// It has [FailureResponse] to indicate more details.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toFailure].
 class FormBlocFailure<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -864,13 +864,13 @@ class FormBlocFailure<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocSubmissionCancelled}
+/// {@template bloc_form_plus.form_state.FormBlocSubmissionCancelled}
 /// It is the state that you must yield last in the method
 /// [FormBloc.onCancelingSubmission].
 /// The previous state must be [FormBlocSubmitting].
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toSubmissionCancelled].
 class FormBlocSubmissionCancelled<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse> {
@@ -895,7 +895,7 @@ class FormBlocSubmissionCancelled<SuccessResponse, FailureResponse>
       ];
 }
 
-/// {@template bloc_forms.form_state.FormBlocSubmissionFailed}
+/// {@template bloc_form_plus.form_state.FormBlocSubmissionFailed}
 /// It is the state when the [FormBlocState._isValidByStep] is `false`
 /// and [FormBloc.submit] is called.
 /// {@endtemplate}
@@ -922,7 +922,7 @@ class FormBlocSubmissionFailed<SuccessResponse, FailureResponse>
       ];
 }
 
-/// {@template bloc_forms.form_state.FormBlocDeleting}
+/// {@template bloc_form_plus.form_state.FormBlocDeleting}
 /// It is the state when [FormBloc.delete] is called.
 /// {@endtemplate}
 class FormBlocDeleting<SuccessResponse, FailureResponse>
@@ -959,14 +959,14 @@ class FormBlocDeleting<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocDeleteFailed}
+/// {@template bloc_form_plus.form_state.FormBlocDeleteFailed}
 /// It is the state when the form are deleting and fail.
 /// The previous state must be [FormBlocDeleting].
 ///
 /// It has [FailureResponse] to indicate more details.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toFailure].
 class FormBlocDeleteFailed<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -1003,14 +1003,14 @@ class FormBlocDeleteFailed<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocDeleteSuccessful}
+/// {@template bloc_form_plus.form_state.FormBlocDeleteSuccessful}
 /// It is the state when the form is deleted successfully.
 /// The previous state must be [FormBlocDeleting].
 ///
 /// It has [SuccessResponse] to indicate more details.
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toSuccess].
 class FormBlocDeleteSuccessful<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>
@@ -1047,14 +1047,14 @@ class FormBlocDeleteSuccessful<SuccessResponse, FailureResponse>
       );
 }
 
-/// {@template bloc_forms.form_state.FormBlocUpdatingFields}
+/// {@template bloc_form_plus.form_state.FormBlocUpdatingFields}
 /// It is the state when the form is updating the fields.
 ///
 /// But you set this state manually.
 ///
 /// {@endtemplate}
 ///
-/// {@macro bloc_forms.form_state.notUseThisClassInsteadUseToMethod}
+/// {@macro bloc_form_plus.form_state.notUseThisClassInsteadUseToMethod}
 /// [FormBlocState.toUpdatingFields].
 class FormBlocUpdatingFields<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse>

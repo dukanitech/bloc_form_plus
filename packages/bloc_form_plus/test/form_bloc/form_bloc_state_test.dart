@@ -1,4 +1,4 @@
-import 'package:bloc_forms/bloc_form.dart';
+import 'package:bloc_form_plus/bloc_form.dart';
 import 'package:test/test.dart';
 
 void main() {

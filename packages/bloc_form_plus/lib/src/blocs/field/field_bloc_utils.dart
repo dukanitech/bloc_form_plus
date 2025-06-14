@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:collection/collection.dart';
-import 'package:bloc_forms/src/blocs/field/field_bloc.dart';
+import 'package:bloc_form_plus/src/blocs/field/field_bloc.dart';
 import 'package:uuid/uuid.dart';
 
 class FieldBlocUtils {

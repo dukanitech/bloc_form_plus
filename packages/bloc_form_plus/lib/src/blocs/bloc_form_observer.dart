@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_forms/src/blocs/field/field_bloc.dart';
-import 'package:bloc_forms/src/blocs/form/bloc_form.dart';
+import 'package:bloc_form_plus/src/blocs/field/field_bloc.dart';
+import 'package:bloc_form_plus/src/blocs/form/bloc_form.dart';
 
 /// [FormBlocObserver] hide `events` and `transitions`of any [FieldBloc] or [FormBloc]
 /// from the [child].

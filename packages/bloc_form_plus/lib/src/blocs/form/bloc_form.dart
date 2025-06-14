@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:bloc_forms/src/blocs/field/field_bloc.dart';
+import 'package:bloc_form_plus/src/blocs/field/field_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'form_state.dart';
@@ -296,19 +296,19 @@ abstract class FormBloc<SuccessResponse, FailureResponse>
   // UTILITY
   // ===========================================================================
 
-  /// {@template bloc_forms.isValuesChanged}
+  /// {@template bloc_form_plus.isValuesChanged}
   /// Check if all field blocs and their children have undergone a change in values
   /// {@endtemplate}
   bool isValuesChanged({int? step}) =>
       FormBlocUtils.isValuesChanged(state.flatFieldBlocs(step) ?? const []);
 
-  /// {@template bloc_forms.hasInitialValues}
+  /// {@template bloc_form_plus.hasInitialValues}
   /// Check if all field blocs and their children have initial values
   /// {@endtemplate}
   bool hasInitialValues({int? step}) =>
       FormBlocUtils.hasInitialValues(state.flatFieldBlocs(step) ?? const []);
 
-  /// {@template bloc_forms.hasUpdatedValues}
+  /// {@template bloc_form_plus.hasUpdatedValues}
   /// Check if all field blocs and their children have updated values
   /// {@endtemplate}
   bool hasUpdatedValues({int? step}) =>

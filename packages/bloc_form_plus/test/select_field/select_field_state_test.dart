@@ -1,5 +1,5 @@
-import 'package:bloc_forms/src/blocs/field/field_bloc.dart';
-import 'package:bloc_forms/src/utils.dart';
+import 'package:bloc_form_plus/src/blocs/field/field_bloc.dart';
+import 'package:bloc_form_plus/src/utils.dart';
 import 'package:test/test.dart';
 
 import '../utils/when_bloc.dart';

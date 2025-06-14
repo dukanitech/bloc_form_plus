@@ -4,10 +4,10 @@ import 'dart:collection' show LinkedHashSet;
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
-import 'package:bloc_forms/src/blocs/field/field_bloc_utils.dart';
-import 'package:bloc_forms/src/blocs/form/bloc_form.dart';
-import 'package:bloc_forms/src/extension/extension.dart';
-import 'package:bloc_forms/src/utils.dart';
+import 'package:bloc_form_plus/src/blocs/field/field_bloc_utils.dart';
+import 'package:bloc_form_plus/src/blocs/form/bloc_form.dart';
+import 'package:bloc_form_plus/src/extension/extension.dart';
+import 'package:bloc_form_plus/src/utils.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
@@ -54,18 +54,18 @@ typedef Suggestions<Value> = Future<List<Value>> Function(String pattern);
 mixin FieldBloc<State extends FieldBlocStateBase> on BlocBase<State> {
   String get name => state.name;
 
-  /// {@template bloc_forms.FieldBloc.validate}
+  /// {@template bloc_form_plus.FieldBloc.validate}
   /// Validate the field. If it contains more fields, it validates all children.
   /// Returns `true` if the field is valid otherwise `false`
   /// {@endtemplate}
   Future<bool> validate();
 
-  /// {@template bloc_forms.FieldBloc.updateFormBloc}
+  /// {@template bloc_form_plus.FieldBloc.updateFormBloc}
   /// Update the [formBloc] and [autoValidate] to the fieldBloc
   /// {@endtemplate}
   void updateFormBloc(FormBloc<dynamic, dynamic> formBloc, {bool autoValidate = false});
 
-  /// {@template bloc_forms.FieldBloc.removeFormBloc}
+  /// {@template bloc_form_plus.FieldBloc.removeFormBloc}
   /// Remove the [formBloc] to the fieldBloc
   /// {@endtemplate}
   void removeFormBloc(FormBloc<dynamic, dynamic> formBloc);
@@ -218,7 +218,7 @@ abstract class SingleFieldBloc<
   /// Set [value] to the `value` and set `isInitial` to `true`
   /// of the current state.
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   void updateInitialValue(Value value) {
     if (!_canUpdateValue(value: value, isInitialValue: true)) return;
 
@@ -239,7 +239,7 @@ abstract class SingleFieldBloc<
 
   /// Set the `value` to `initialValue` of the current state.
   ///
-  /// {@macro bloc_forms.field_bloc.update_value}
+  /// {@macro bloc_form_plus.field_bloc.update_value}
   void clear() => updateInitialValue(state.initialValue);
 
   /// Add a [suggestion] to [selectedSuggestion].
@@ -383,7 +383,7 @@ abstract class SingleFieldBloc<
     }
   }
 
-  /// {@template bloc_forms.FieldBloc.updateExtraData}
+  /// {@template bloc_form_plus.FieldBloc.updateExtraData}
   /// Updates the `extraData` of the current state.
   /// {@endtemplate}
   void updateExtraData(ExtraData extraData) {
@@ -546,7 +546,7 @@ abstract class SingleFieldBloc<
     }
   }
 
-  /// {@macro bloc_forms.FieldBloc.updateFormBloc}
+  /// {@macro bloc_form_plus.FieldBloc.updateFormBloc}
   /// See [FieldBloc.updateFormBloc]
   @override
   void updateFormBloc(FormBloc<dynamic, dynamic> formBloc, {bool autoValidate = false}) {
@@ -565,7 +565,7 @@ abstract class SingleFieldBloc<
     }
   }
 
-  /// {@macro bloc_forms.FieldBloc.removeFormBloc}
+  /// {@macro bloc_form_plus.FieldBloc.removeFormBloc}
   /// See [FieldBloc.removeFormBloc]
   @override
   void removeFormBloc(FormBloc<dynamic, dynamic> formBloc) {
@@ -576,7 +576,7 @@ abstract class SingleFieldBloc<
     }
   }
 
-  /// {@template bloc_forms.field_bloc.itemsWithoutDuplicates}
+  /// {@template bloc_form_plus.field_bloc.itemsWithoutDuplicates}
   ///
   /// This method removes duplicate values.
   /// {@endtemplate}
@@ -670,15 +670,15 @@ class MultiFieldBloc<ExtraData, TState extends MultiFieldBlocState<ExtraData>>
   // UTILITY
   // ===========================================================================
 
-  /// {@macro bloc_forms.isValuesChanged}
+  /// {@macro bloc_form_plus.isValuesChanged}
   /// See [FormBloc.isValuesChanged]
   bool get isValuesChanged => FormBlocUtils.isValuesChanged(flatFieldBlocs);
 
-  /// {@macro bloc_forms.hasInitialValues}
+  /// {@macro bloc_form_plus.hasInitialValues}
   /// See [FormBloc.hasInitialValues]
   bool get hasInitialValues => FormBlocUtils.hasInitialValues(flatFieldBlocs);
 
-  /// {@macro bloc_forms.hasUpdatedValues}
+  /// {@macro bloc_form_plus.hasUpdatedValues}
   /// See [FormBloc.hasUpdatedValues]
   bool get hasUpdatedValues => FormBlocUtils.hasUpdatedValues(flatFieldBlocs);
 
@@ -692,7 +692,7 @@ class MultiFieldBloc<ExtraData, TState extends MultiFieldBlocState<ExtraData>>
   @override
   Future<bool> validate() => validateAll(state.flatFieldBlocs);
 
-  /// {@macro bloc_forms.FieldBloc.updateExtraData}
+  /// {@macro bloc_form_plus.FieldBloc.updateExtraData}
   /// See [SingleFieldBloc.updateExtraData]
   void updateExtraData(ExtraData extraData) {
     emit(state.copyWith(
