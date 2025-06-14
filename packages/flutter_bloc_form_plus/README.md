@@ -1,9 +1,9 @@
 # bloc_form_plus
 
-| Package                                                                                                      | Pub                                                                                                              |
-|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| [bloc_form_plus](https://github.com/dukanitech/bloc_form/tree/main/packages/bloc_form_plus)                  | [![pub package](https://img.shields.io/pub/v/bloc_form.svg)](https://pub.dev/packages/bloc_form_plus)            |
-| [flutter_bloc_form_plus](https://github.com/duckaniteck/bloc_form/tree/main/packages/flutter_bloc_form_plus) | [![pub package](https://img.shields.io/pub/v/flutter_bloc_form.svg)](https://pub.dev/packages/flutter_bloc_form_plus) 
+| Package                                                                                                     | Pub                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [bloc_form_plus](https://github.com/dukanitech/bloc_form/tree/main/packages/bloc_form_plus)                 | [![pub package](https://img.shields.io/pub/v/bloc_form.svg)](https://pub.dev/packages/bloc_form_plus)            |
+| [flutter_bloc_form_plus](https://github.com/dukanitech/bloc_form/tree/main/packages/flutter_bloc_form_plus) | [![pub package](https://img.shields.io/pub/v/flutter_bloc_form.svg)](https://pub.dev/packages/flutter_bloc_form_plus) 
 
 
 Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface.
