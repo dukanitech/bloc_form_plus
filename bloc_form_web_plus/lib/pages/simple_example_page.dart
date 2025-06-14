@@ -68,7 +68,7 @@ But also import material library.
         CodeCard.main(
           code: '''
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_form/flutter_bloc_form.dart';
+import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
 ''',
         ),
       ],
