@@ -13,12 +13,12 @@ class SimpleFieldBlocBuilder extends StatelessWidget {
   final Widget Function(BuildContext context, bool canShow) builder;
 
   const SimpleFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.singleFieldBloc,
     this.animateWhenCanShow = true,
     this.focusOnValidationFailed = true,
     required this.builder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

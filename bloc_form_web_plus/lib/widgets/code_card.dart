@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CodeCard extends StatelessWidget {
@@ -12,13 +12,13 @@ class CodeCard extends StatelessWidget {
   final double? bottomPaddingCopyMessage;
 
   const CodeCard({
-    Key? key,
+    super.key,
     required this.code,
     this.fileName,
     this.showCopyButton = true,
     this.padding,
     this.bottomPaddingCopyMessage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,7 @@ dependencies:
   }) =>
       CodeCard(
         code: code,
-        fileName: 'main.dart' + (nestedPath != null ? ' > $nestedPath' : ''),
+        fileName: 'main.dart${nestedPath != null ? ' > $nestedPath' : ''}',
         showCopyButton: showCopyButton,
         padding: padding,
       );

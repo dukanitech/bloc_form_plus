@@ -5,10 +5,10 @@ class FormThemeProvider extends InheritedWidget {
   final FormTheme theme;
 
   const FormThemeProvider({
-    Key? key,
+    super.key,
     required this.theme,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   static FormTheme? of(BuildContext context) {
     return context

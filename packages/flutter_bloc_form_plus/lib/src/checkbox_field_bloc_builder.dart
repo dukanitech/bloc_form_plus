@@ -9,7 +9,7 @@ import 'package:bloc_form_plus/bloc_form.dart';
 /// A material design checkbox.
 class CheckboxFieldBlocBuilder extends StatelessWidget {
   const CheckboxFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.booleanFieldBloc,
     required this.body,
     this.enableOnlyWhenFormBlocCanSubmit = false,
@@ -29,7 +29,7 @@ class CheckboxFieldBlocBuilder extends StatelessWidget {
     this.splashRadius,
     this.shape,
     this.side,
-  }) : super(key: key);
+  });
 
   /// {@macro flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   final BooleanFieldBloc<dynamic> booleanFieldBloc;

@@ -8,7 +8,7 @@ export 'package:intl/intl.dart' show DateFormat;
 
 class DateTimeFieldBlocBuilder extends StatelessWidget {
   const DateTimeFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.dateTimeFieldBloc,
     required this.format,
     this.canSelectTime = false,
@@ -35,7 +35,7 @@ class DateTimeFieldBlocBuilder extends StatelessWidget {
     this.focusNode,
     this.textStyle,
     this.textColor,
-  }) : super(key: key);
+  });
 
   /// {@macro flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   final InputFieldBloc<DateTime?, dynamic> dateTimeFieldBloc;

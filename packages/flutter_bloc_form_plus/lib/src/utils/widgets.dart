@@ -9,11 +9,11 @@ class DefaultFieldBlocBuilderTextStyle extends StatelessWidget {
   final Widget child;
 
   const DefaultFieldBlocBuilderTextStyle({
-    Key? key,
+    super.key,
     required this.isEnabled,
     this.style,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,10 @@ class DefaultFieldBlocBuilderPadding extends StatelessWidget {
   final Widget child;
 
   const DefaultFieldBlocBuilderPadding({
-    Key? key,
+    super.key,
     required this.padding,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +62,10 @@ class GroupInputDecorator extends StatelessWidget {
   final Widget child;
 
   const GroupInputDecorator({
-    Key? key,
+    super.key,
     required this.decoration,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

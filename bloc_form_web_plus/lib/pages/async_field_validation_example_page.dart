@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/async_field_validation_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/async_field_validation_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class AsyncFieldValidationExamplePage extends StatelessWidget {
-  const AsyncFieldValidationExamplePage({Key? key}) : super(key: key);
+  const AsyncFieldValidationExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

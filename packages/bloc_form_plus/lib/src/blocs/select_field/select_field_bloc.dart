@@ -4,7 +4,7 @@ part of '../field/field_bloc.dart';
 /// from multiple items.
 class SelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<Value?, Value,
     SelectFieldBlocState<Value, ExtraData>, ExtraData?> {
-  /// ## SelectFieldBloc<Value, ExtraData>
+  /// ## `SelectFieldBloc<Value, ExtraData>`
   ///
   /// ### Properties:
   ///
@@ -41,17 +41,14 @@ class SelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<Value?, Value,
   SelectFieldBloc({
     String? name,
     Value? initialValue,
-    List<Validator<Value?>>? validators,
-    List<AsyncValidator<Value?>>? asyncValidators,
-    Duration asyncValidatorDebounceTime = const Duration(milliseconds: 500),
+    super.validators,
+    super.asyncValidators,
+    super.asyncValidatorDebounceTime = const Duration(milliseconds: 500),
     Suggestions<Value>? suggestions,
     List<Value> items = const [],
     dynamic Function(Value? value)? toJson,
     ExtraData? extraData,
   }) : super(
-          validators: validators,
-          asyncValidators: asyncValidators,
-          asyncValidatorDebounceTime: asyncValidatorDebounceTime,
           initialState: SelectFieldBlocState(
             isValueChanged: false,
             initialValue: initialValue,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/all_fields_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/all_fields_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class AllFieldsExamplePage extends StatelessWidget {
-  const AllFieldsExamplePage({Key? key}) : super(key: key);
+  const AllFieldsExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

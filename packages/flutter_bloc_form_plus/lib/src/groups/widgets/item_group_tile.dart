@@ -7,12 +7,12 @@ class ItemGroupTile extends StatelessWidget {
   final Widget content;
 
   const ItemGroupTile({
-    Key? key,
+    super.key,
     this.customBorder,
     this.onTap,
     required this.leading,
     required this.content,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

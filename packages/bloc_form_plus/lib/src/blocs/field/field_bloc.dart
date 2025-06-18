@@ -145,7 +145,7 @@ abstract class SingleFieldBloc<
   /// [FieldBlocState.hasUpdatedValue]
   bool get hasUpdatedValue => state.hasUpdatedValue;
 
-  /// Returns a [StreamSubscription<R>],
+  /// Returns a [`StreamSubscription<R>`],
   ///
   /// [onData] is called with the state every time the values changes,
   /// after [debounceTime].
@@ -653,7 +653,7 @@ class MultiFieldBloc<ExtraData, TState extends MultiFieldBlocState<ExtraData>>
 
   bool get autoValidate => _autoValidate;
 
-  MultiFieldBloc(TState initialState) : super(initialState) {
+  MultiFieldBloc(super.initialState) {
     _onValidationStatus = stream.switchMap((state) {
       return MultiFieldBloc.onValidationStatus(state.flatFieldBlocs);
     }).listen((validationStatus) {

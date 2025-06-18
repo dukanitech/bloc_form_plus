@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:bloc_form_web/constants/style.dart';
-import 'package:bloc_form_web/widgets/code_card.dart';
-import 'package:bloc_form_web/widgets/copy_flash.dart';
-import 'package:bloc_form_web/widgets/gradient_button.dart';
+import 'package:bloc_form_web_plus/constants/style.dart';
+import 'package:bloc_form_web_plus/widgets/code_card.dart';
+import 'package:bloc_form_web_plus/widgets/copy_flash.dart';
+import 'package:bloc_form_web_plus/widgets/gradient_button.dart';
 
 class CodeScreen extends StatefulWidget {
   const CodeScreen({
-    Key? key,
+    super.key,
     this.codePath,
     this.extraDependencies,
-  }) : super(key: key);
+  });
 
   final String? codePath;
 

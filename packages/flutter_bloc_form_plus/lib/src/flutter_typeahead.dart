@@ -255,7 +255,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ///   elevation: 0.0
 /// )
 /// ```
-library flutter_typeahead;
+library;
+
+// library flutter_typeahead;
 
 import 'dart:async';
 import 'dart:math';
@@ -556,7 +558,7 @@ class TypeAheadField<T> extends StatefulWidget {
 
   /// Creates a [TypeAheadField]
   TypeAheadField({
-    Key? key,
+    super.key,
     required this.suggestionsCallback,
     required this.itemBuilder,
     required this.onSuggestionSelected,
@@ -586,11 +588,12 @@ class TypeAheadField<T> extends StatefulWidget {
     this.onTap,
   })  : assert(animationStart >= 0.0 && animationStart <= 1.0),
         assert(
-            direction == AxisDirection.down || direction == AxisDirection.up),
-        super(key: key);
+            direction == AxisDirection.down || direction == AxisDirection.up);
 
+  // @override
+  // _TypeAheadFieldState<T> createState() => _TypeAheadFieldState<T>();
   @override
-  _TypeAheadFieldState<T> createState() => _TypeAheadFieldState<T>();
+  State<TypeAheadField<T>> createState() => _TypeAheadFieldState<T>();
 }
 
 class _TypeAheadFieldState<T> extends State<TypeAheadField<T>>
@@ -1723,25 +1726,51 @@ class _SuggestionsBox {
   }
 
   /// Delays until the keyboard has toggled or the orientation has fully changed
+  // Future<bool> _waitChangeMetrics() async {
+  //   if (widgetMounted) {
+  //     // initial viewInsets which are before the keyboard is toggled
+  //     EdgeInsets initial = MediaQuery.of(context).viewInsets;
+  //     // initial MediaQuery for orientation change
+  //     MediaQuery? initialRootMediaQuery = _findRootMediaQuery();
+  //
+  //     int timer = 0;
+  //     // viewInsets or MediaQuery have changed once keyboard has toggled or orientation has changed
+  //     while (widgetMounted && timer < waitMetricsTimeoutMillis) {
+  //       // TODO: reduce delay if showDialog ever exposes detection of animation end
+  //       await Future<void>.delayed(const Duration(milliseconds: 170));
+  //       timer += 170;
+  //
+  //       if (widgetMounted && (MediaQuery.of(context).viewInsets != initial ||
+  //               _findRootMediaQuery() != initialRootMediaQuery)) {
+  //         return true;
+  //       }
+  //     }
+  //   }
+  //
+  //   return false;
+  // }
+
   Future<bool> _waitChangeMetrics() async {
-    if (widgetMounted) {
-      // initial viewInsets which are before the keyboard is toggled
-      EdgeInsets initial = MediaQuery.of(context).viewInsets;
-      // initial MediaQuery for orientation change
-      MediaQuery? initialRootMediaQuery = _findRootMediaQuery();
+    if (!context.mounted) return false;
 
-      int timer = 0;
-      // viewInsets or MediaQuery have changed once keyboard has toggled or orientation has changed
-      while (widgetMounted && timer < waitMetricsTimeoutMillis) {
-        // TODO: reduce delay if showDialog ever exposes detection of animation end
-        await Future<void>.delayed(const Duration(milliseconds: 170));
-        timer += 170;
+    final initialInsets = MediaQuery.of(context).viewInsets;
+    final initialRootMediaQuery = _findRootMediaQuery();
 
-        if (widgetMounted &&
-            (MediaQuery.of(context).viewInsets != initial ||
-                _findRootMediaQuery() != initialRootMediaQuery)) {
-          return true;
-        }
+    int timer = 0;
+
+    while (context.mounted && timer < waitMetricsTimeoutMillis) {
+      await Future<void>.delayed(const Duration(milliseconds: 170));
+      timer += 170;
+
+      if (!context.mounted) break;
+
+      final currentInsets = MediaQuery.maybeOf(context)?.viewInsets;
+      final currentRootMediaQuery = _findRootMediaQuery();
+
+      if (currentInsets != null &&
+          (currentInsets != initialInsets ||
+              currentRootMediaQuery != initialRootMediaQuery)) {
+        return true;
       }
     }
 

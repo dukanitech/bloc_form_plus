@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/constants/style.dart';
-import 'package:bloc_form_web/widgets/app_drawer.dart';
+import 'package:bloc_form_web_plus/constants/style.dart';
+import 'package:bloc_form_web_plus/widgets/app_drawer.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
-    Key? key,
+    super.key,
     this.showParticlesBackground = false,
     required this.appBar,
     required this.body,
-  }) : super(key: key);
+  });
 
   final bool showParticlesBackground;
   final AppBar appBar;

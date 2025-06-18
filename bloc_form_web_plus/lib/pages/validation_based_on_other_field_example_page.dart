@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/validation_based_on_other_field.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/validation_based_on_other_field.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class ValidationBasedOnOtherFieldExamplePage extends StatelessWidget {
-  const ValidationBasedOnOtherFieldExamplePage({Key? key}) : super(key: key);
+  const ValidationBasedOnOtherFieldExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

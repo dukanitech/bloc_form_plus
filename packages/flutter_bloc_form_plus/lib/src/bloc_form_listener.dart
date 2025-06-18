@@ -19,9 +19,9 @@ ErrorResponse>
   /// [BlocListener] that reacts to the state changes of the FormBloc.
   /// {@macro bloclistener}
   FormBlocListener({
-    Key? key,
+    super.key,
     this.formBloc,
-    Widget? child,
+    super.child,
     this.onLoading,
     this.onLoaded,
     this.onLoadFailed,
@@ -34,8 +34,6 @@ ErrorResponse>
     this.onDeleteFailed,
     this.onDeleteSuccessful,
   }) : super(
-    key: key,
-    child: child,
     bloc: formBloc,
     listenWhen: (previousState, state) =>
     previousState.runtimeType != state.runtimeType,

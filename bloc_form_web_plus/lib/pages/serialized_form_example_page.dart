@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/serialized_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/serialized_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class SerializedFormExamplePage extends StatelessWidget {
-  const SerializedFormExamplePage({Key? key}) : super(key: key);
+  const SerializedFormExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

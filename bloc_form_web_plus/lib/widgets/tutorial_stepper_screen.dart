@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/constants/style.dart';
-import 'package:bloc_form_web/widgets/gradient_button.dart';
+import 'package:bloc_form_web_plus/constants/style.dart';
+import 'package:bloc_form_web_plus/widgets/gradient_button.dart';
 
 class TutorialStepperScreen extends StatefulWidget {
-  const TutorialStepperScreen({Key? key, required this.steps}) : super(key: key);
+  const TutorialStepperScreen({super.key, required this.steps});
 
   final List<TutorialStep> steps;
 
   @override
-  _TutorialStepperScreenState createState() => _TutorialStepperScreenState();
+  State<TutorialStepperScreen> createState() => _TutorialStepperScreenState();
 }
 
 class _TutorialStepperScreenState extends State<TutorialStepperScreen> {

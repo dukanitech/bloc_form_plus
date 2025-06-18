@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/constants/style.dart';
-import 'package:bloc_form_web/routes.dart';
-import 'package:bloc_form_web/widgets/app_scaffold.dart';
+import 'package:bloc_form_web_plus/constants/style.dart';
+import 'package:bloc_form_web_plus/routes.dart';
+import 'package:bloc_form_web_plus/widgets/app_scaffold.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +61,15 @@ class HomePage extends StatelessWidget {
                   child: TextButton(
                     onPressed: () => Navigator.of(context)
                         .pushReplacementNamed(RouteNames.simpleExample),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.black38, shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        side: const BorderSide(
+                          width: 2,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     child: Container(
                       alignment: Alignment.center,
                       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -71,15 +80,6 @@ class HomePage extends StatelessWidget {
                           fontSize: 24,
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black38, shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        side: const BorderSide(
-                          width: 2,
-                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -105,8 +105,9 @@ class HomePage extends StatelessWidget {
         ),
       ),
       onTap: () async {
-        if (await canLaunch(url!)) {
-          await launch(url);
+        final Uri urlPath = Uri.parse(url!);
+        if (await canLaunchUrl(urlPath)) {
+          await launchUrl(urlPath);
         }
       },
     );

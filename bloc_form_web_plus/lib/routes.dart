@@ -1,16 +1,16 @@
 import 'package:flutter/widgets.dart';
-import 'package:bloc_form_web/pages/all_fields_form_example_page.dart';
-import 'package:bloc_form_web/pages/async_field_validation_example_page.dart';
-import 'package:bloc_form_web/pages/conditional_fields_example_page.dart';
-import 'package:bloc_form_web/pages/home_page.dart';
-import 'package:bloc_form_web/pages/list_fields_example_page.dart';
-import 'package:bloc_form_web/pages/loading_and_initializing_example_page.dart';
-import 'package:bloc_form_web/pages/serialized_form_example_page.dart';
-import 'package:bloc_form_web/pages/simple_example_page.dart';
-import 'package:bloc_form_web/pages/submission_error_to_field_example_page.dart';
-import 'package:bloc_form_web/pages/submission_progress_example_page.dart';
-import 'package:bloc_form_web/pages/wizard_example_page.dart';
-import 'package:bloc_form_web/pages/validation_based_on_other_field_example_page.dart';
+import 'package:bloc_form_web_plus/pages/all_fields_form_example_page.dart';
+import 'package:bloc_form_web_plus/pages/async_field_validation_example_page.dart';
+import 'package:bloc_form_web_plus/pages/conditional_fields_example_page.dart';
+import 'package:bloc_form_web_plus/pages/home_page.dart';
+import 'package:bloc_form_web_plus/pages/list_fields_example_page.dart';
+import 'package:bloc_form_web_plus/pages/loading_and_initializing_example_page.dart';
+import 'package:bloc_form_web_plus/pages/serialized_form_example_page.dart';
+import 'package:bloc_form_web_plus/pages/simple_example_page.dart';
+import 'package:bloc_form_web_plus/pages/submission_error_to_field_example_page.dart';
+import 'package:bloc_form_web_plus/pages/submission_progress_example_page.dart';
+import 'package:bloc_form_web_plus/pages/wizard_example_page.dart';
+import 'package:bloc_form_web_plus/pages/validation_based_on_other_field_example_page.dart';
 
 class RouteNames {
   RouteNames._();

@@ -333,13 +333,12 @@ class GroupView extends StatelessWidget {
   final IndexedWidgetBuilder builder;
 
   const GroupView({
-    Key? key,
+    super.key,
     required this.style,
     this.padding,
     required this.count,
     required this.builder,
-  })  : assert(count >= 0),
-        super(key: key);
+  })  : assert(count >= 0);
 
   Iterable<Widget> _generateChildren(BuildContext context) sync* {
     for (var i = 0; i < count; i++) {

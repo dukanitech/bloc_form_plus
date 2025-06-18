@@ -3,34 +3,20 @@ part of '../field/field_bloc.dart';
 class TextFieldBlocState<ExtraData>
     extends FieldBlocState<String, String, ExtraData?> {
   TextFieldBlocState({
-    required bool isValueChanged,
-    required String initialValue,
-    required String updatedValue,
-    required String value,
-    required Object? error,
-    required bool isDirty,
-    required Suggestions<String>? suggestions,
-    required bool isValidated,
-    required bool isValidating,
-    FormBloc<dynamic, dynamic>? formBloc,
-    required String name,
-    dynamic Function(String value)? toJson,
-    ExtraData? extraData,
-  }) : super(
-          isValueChanged: isValueChanged,
-          initialValue: initialValue,
-          updatedValue: updatedValue,
-          value: value,
-          error: error,
-          isDirty: isDirty,
-          suggestions: suggestions,
-          isValidated: isValidated,
-          isValidating: isValidating,
-          formBloc: formBloc,
-          name: name,
-          toJson: toJson,
-          extraData: extraData,
-        );
+    required super.isValueChanged,
+    required super.initialValue,
+    required super.updatedValue,
+    required super.value,
+    required super.error,
+    required super.isDirty,
+    required super.suggestions,
+    required super.isValidated,
+    required super.isValidating,
+    super.formBloc,
+    required super.name,
+    super.toJson,
+    super.extraData,
+  });
 
   /// Parse the [value] to [int].
   /// if the value is an [int] returns an [int],

@@ -8,7 +8,7 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 }
 
 class AllFieldsForm extends StatelessWidget {
-  const AllFieldsForm({Key? key}) : super(key: key);
+  const AllFieldsForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -324,15 +324,19 @@ class AllFieldsForm extends StatelessWidget {
 
 class LoadingDialog extends StatelessWidget {
   static void show(BuildContext context, {Key? key}) => showDialog<void>(
-        context: context,
-        useRootNavigator: false,
-        barrierDismissible: false,
-        builder: (_) => LoadingDialog(key: key),
-      ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
+    context: context,
+    useRootNavigator: false,
+    barrierDismissible: false,
+    builder: (_) => LoadingDialog(key: key),
+  ).then((_) {
+      if (context.mounted) {
+         FocusScope.of(context).requestFocus(FocusNode());
+       }
+  });
 
   static void hide(BuildContext context) => Navigator.pop(context);
 
-  const LoadingDialog({Key? key}) : super(key: key);
+  const LoadingDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -353,7 +357,7 @@ class LoadingDialog extends StatelessWidget {
 }
 
 class SuccessScreen extends StatelessWidget {
-  const SuccessScreen({Key? key}) : super(key: key);
+  const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

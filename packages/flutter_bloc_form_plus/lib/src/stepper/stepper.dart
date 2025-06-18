@@ -139,7 +139,7 @@ class Stepper extends StatefulWidget {
   ///
   /// The [steps], [type], and [currentStep] arguments must not be null.
   const Stepper({
-    Key? key,
+    super.key,
     required this.steps,
     this.physics,
     this.type = StepperType.vertical,
@@ -151,8 +151,7 @@ class Stepper extends StatefulWidget {
     this.controlsBuilder,
     this.elevation,
     this.margin,
-  })  : assert(0 <= currentStep && currentStep < steps.length),
-        super(key: key);
+  })  : assert(0 <= currentStep && currentStep < steps.length);
 
   /// The steps of the stepper whose titles, subtitles, icons always get shown.
   ///
@@ -343,7 +342,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
     if (!_isDark()) {
       return widget.steps[index].isActive
           ? colorScheme.primary
-          : colorScheme.onSurface.withOpacity(0.38);
+          : colorScheme.onSurface.withValues(alpha: 0.38);
     } else {
       return widget.steps[index].isActive
           ? colorScheme.secondary

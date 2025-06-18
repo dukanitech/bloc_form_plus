@@ -131,7 +131,7 @@ class ChoiceChipFieldBlocBuilder<T> extends StatelessWidget {
   final ChipFieldItemBuilder<T> itemBuilder;
 
   const ChoiceChipFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.selectFieldBloc,
     this.focusNode,
     this.nextFocusNode,
@@ -171,7 +171,7 @@ class ChoiceChipFieldBlocBuilder<T> extends StatelessWidget {
     this.checkmarkColor,
     this.avatarBorder = const CircleBorder(),
     required this.itemBuilder,
-  }) : super(key: key);
+  });
 
   ChoiceChipFieldTheme themeOf(BuildContext context) {
     final formTheme = FormTheme.of(context);

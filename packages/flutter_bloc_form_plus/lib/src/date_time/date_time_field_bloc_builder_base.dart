@@ -18,7 +18,7 @@ enum DateTimeFieldBlocBuilderBaseType {
 /// A material design date picker.
 class DateTimeFieldBlocBuilderBase<T> extends StatefulWidget {
   const DateTimeFieldBlocBuilderBase({
-    Key? key,
+    super.key,
     required this.dateTimeFieldBloc,
     required this.format,
     required this.type,
@@ -45,7 +45,7 @@ class DateTimeFieldBlocBuilderBase<T> extends StatefulWidget {
     this.textStyle,
     this.textColor,
     this.textAlign,
-  }) : super(key: key);
+  });
 
   final DateTimeFieldBlocBuilderBaseType type;
 
@@ -107,8 +107,7 @@ class DateTimeFieldBlocBuilderBase<T> extends StatefulWidget {
   final TimeOfDay initialTime;
 
   @override
-  _DateTimeFieldBlocBuilderBaseState createState() =>
-      _DateTimeFieldBlocBuilderBaseState();
+  State<DateTimeFieldBlocBuilderBase> createState() => _DateTimeFieldBlocBuilderBaseState();
 
   DateTimeFieldTheme themeStyleOf(BuildContext context) {
     final theme = Theme.of(context);
@@ -171,6 +170,7 @@ class _DateTimeFieldBlocBuilderBaseState<T>
       final date = await _showDatePicker(context);
 
       if (date != null) {
+        if (!context.mounted) return null;
         final time = await _showTimePicker(context);
         result = _combine(date, time);
       }
@@ -189,6 +189,8 @@ class _DateTimeFieldBlocBuilderBaseState<T>
       )!(result);
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -293,6 +295,7 @@ class _DateTimeFieldBlocBuilderBaseState<T>
   }
 
   Future<TimeOfDay?> _showTimePicker(BuildContext context) async {
+    // if (!context.mounted) return null;
     return await showTimePicker(
       context: context,
       useRootNavigator: widget.useRootNavigator,

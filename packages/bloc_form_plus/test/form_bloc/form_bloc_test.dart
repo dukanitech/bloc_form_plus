@@ -15,9 +15,9 @@ class _FormBlocImpl extends FormBloc<String, String> with Mock {
   );
 
   _FormBlocImpl({
-    bool isLoading = false,
-    bool autoValidate = true,
-  }) : super(isLoading: isLoading, autoValidate: autoValidate);
+    super.isLoading,
+    super.autoValidate,
+  });
 
   @override
   FutureOr<void> onLoading() {

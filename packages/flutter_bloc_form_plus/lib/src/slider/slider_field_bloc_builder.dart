@@ -60,7 +60,7 @@ class SliderFieldBlocBuilder extends StatelessWidget {
   final String Function(BuildContext context, double value)? labelBuilder;
 
   const SliderFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.inputFieldBloc,
     this.focusNode,
     this.nextFocusNode,
@@ -78,7 +78,7 @@ class SliderFieldBlocBuilder extends StatelessWidget {
     this.decoration = const InputDecoration(),
     this.errorBuilder,
     this.labelBuilder,
-  }) : super(key: key);
+  });
 
   SliderFieldTheme themeOf(BuildContext context) {
     final theme = Theme.of(context);

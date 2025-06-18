@@ -7,7 +7,7 @@ class MultiSelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<
     Value,
     MultiSelectFieldBlocState<Value, ExtraData>,
     ExtraData?> {
-  /// ## MultiSelectFieldBloc<Value, ExtraData>
+  /// ## `MultiSelectFieldBloc<Value, ExtraData>`
   ///
   /// ### Properties:
   ///
@@ -45,18 +45,15 @@ class MultiSelectFieldBloc<Value, ExtraData> extends SingleFieldBloc<
   MultiSelectFieldBloc({
     String? name,
     List<Value> initialValue = const [],
-    List<Validator<List<Value>>>? validators,
-    List<AsyncValidator<List<Value>>>? asyncValidators,
-    Duration asyncValidatorDebounceTime = const Duration(milliseconds: 500),
+    super.validators,
+    super.asyncValidators,
+    super.asyncValidatorDebounceTime = const Duration(milliseconds: 500),
     Suggestions<Value>? suggestions,
     List<Value> items = const [],
     dynamic Function(List<Value> value)? toJson,
     ExtraData? extraData,
   }) : super(
           equality: const ListEquality<Never>(),
-          validators: validators,
-          asyncValidators: asyncValidators,
-          asyncValidatorDebounceTime: asyncValidatorDebounceTime,
           initialState: MultiSelectFieldBlocState(
             isValueChanged: false,
             initialValue: initialValue,

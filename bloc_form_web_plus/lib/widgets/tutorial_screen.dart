@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class TutorialScreen extends StatelessWidget {
   const TutorialScreen({
-    Key? key,
+    super.key,
     required this.children,
-  }) : super(key: key);
+  });
   final List<Widget> children;
 
   @override

@@ -615,19 +615,13 @@ class FormBlocLoading<SuccessResponse, FailureResponse>
   final double progress;
 
   FormBlocLoading({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
+    super.isValidByStep = const {},
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
     double progress = 0.0,
   })  : assert(progress >= 0.0 && progress <= 0.0),
-        progress = progress.clamp(0.0, 1.0),
-        super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+        progress = progress.clamp(0.0, 1.0);
 
   @override
   List<Object?> get props => [
@@ -661,17 +655,12 @@ class FormBlocLoadFailed<SuccessResponse, FailureResponse>
   bool get hasFailureResponse => failureResponse != null;
 
   FormBlocLoadFailed({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
+    super.isValidByStep = const {},
+    super.isEditing = false,
     this.failureResponse,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -697,16 +686,11 @@ class FormBlocLoadFailed<SuccessResponse, FailureResponse>
 class FormBlocLoaded<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse> {
   FormBlocLoaded({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.isValidByStep = const {},
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -737,20 +721,14 @@ class FormBlocSubmitting<SuccessResponse, FailureResponse>
   /// * If [progress] is less than 0, it will become 0.0
   /// * If [progress] is greater than 1, it will become 1.0
   FormBlocSubmitting({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
+    super.isValidByStep = const {},
+    super.isEditing = false,
     double progress = 0.0,
     this.isCanceling = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
   })  : assert(progress >= 0.0 && progress <= 1.0),
-        progress = progress.clamp(0.0, 1.0),
-        super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+        progress = progress.clamp(0.0, 1.0);
 
   @override
   List<Object?> get props => [
@@ -788,19 +766,14 @@ class FormBlocSuccess<SuccessResponse, FailureResponse>
   bool get hasSuccessResponse => successResponse != null;
 
   FormBlocSuccess({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
+    super.isValidByStep = const {},
+    super.isEditing = false,
     this.successResponse,
     this.canSubmitAgain = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
     this.stepCompleted = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+  });
 
   @override
   List<Object?> get props => [
@@ -837,17 +810,12 @@ class FormBlocFailure<SuccessResponse, FailureResponse>
   bool get hasFailureResponse => failureResponse != null;
 
   FormBlocFailure({
-    required Map<int, bool> isValidByStep,
-    bool isEditing = false,
+    required super.isValidByStep,
+    super.isEditing = false,
     this.failureResponse,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -875,16 +843,11 @@ class FormBlocFailure<SuccessResponse, FailureResponse>
 class FormBlocSubmissionCancelled<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse> {
   FormBlocSubmissionCancelled({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.isValidByStep = const {},
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -902,16 +865,11 @@ class FormBlocSubmissionCancelled<SuccessResponse, FailureResponse>
 class FormBlocSubmissionFailed<SuccessResponse, FailureResponse>
     extends FormBlocState<SuccessResponse, FailureResponse> {
   FormBlocSubmissionFailed({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.isValidByStep = const {},
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -930,19 +888,13 @@ class FormBlocDeleting<SuccessResponse, FailureResponse>
   final double progress;
 
   FormBlocDeleting({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
+    super.isValidByStep = const {},
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
     double progress = 0.0,
   })  : assert(progress >= 0.0 && progress <= 1.0),
-        progress = progress.clamp(0.0, 1.0),
-        super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+        progress = progress.clamp(0.0, 1.0);
 
   @override
   List<Object?> get props => [
@@ -976,17 +928,12 @@ class FormBlocDeleteFailed<SuccessResponse, FailureResponse>
   bool get hasFailureResponse => failureResponse != null;
 
   FormBlocDeleteFailed({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
+    super.isValidByStep = const {},
+    super.isEditing = false,
     this.failureResponse,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -1020,17 +967,12 @@ class FormBlocDeleteSuccessful<SuccessResponse, FailureResponse>
   bool get hasSuccessResponse => successResponse != null;
 
   FormBlocDeleteSuccessful({
-    Map<int, bool> isValidByStep = const {},
-    bool isEditing = false,
+    super.isValidByStep = const {},
+    super.isEditing = false,
     this.successResponse,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
-  }) : super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
+  });
 
   @override
   List<Object?> get props => [
@@ -1062,19 +1004,13 @@ class FormBlocUpdatingFields<SuccessResponse, FailureResponse>
   final double progress;
 
   FormBlocUpdatingFields({
-    required Map<int, bool> isValidByStep,
-    bool isEditing = false,
-    Map<int, Map<String, FieldBloc>> fieldBlocs = const {},
-    int currentStep = 0,
+    required super.isValidByStep,
+    super.isEditing = false,
+    super.fieldBlocs = const {},
+    super.currentStep = 0,
     required double progress,
   })  : assert(progress >= 0.0 && progress <= 1.0),
-        progress = progress.clamp(0.0, 1.0),
-        super(
-          isValidByStep: isValidByStep,
-          isEditing: isEditing,
-          fieldBlocs: fieldBlocs,
-          currentStep: currentStep,
-        );
+        progress = progress.clamp(0.0, 1.0);
 
   @override
   List<Object?> get props => [

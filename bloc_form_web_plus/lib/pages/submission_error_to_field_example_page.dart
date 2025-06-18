@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:bloc_form_web/examples/submission_error_to_field_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/submission_error_to_field_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class SubmissionErrorToFieldExamplePage extends StatelessWidget {
-  const SubmissionErrorToFieldExamplePage({Key? key}) : super(key: key);
+  const SubmissionErrorToFieldExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

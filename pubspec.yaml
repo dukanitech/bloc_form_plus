@@ -1,7 +1,6 @@
 name: root_workspace
-
 environment:
-   sdk: '>=2.12.0 <4.0.0'
+   sdk: '>=3.4.3 <4.0.0'
 
 
 dev_dependencies:

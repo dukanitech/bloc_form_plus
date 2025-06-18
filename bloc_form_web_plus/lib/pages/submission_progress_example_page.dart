@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/submission_progress_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/submission_progress_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class SubmissionProgressExamplePage extends StatelessWidget {
-  const SubmissionProgressExamplePage({Key? key}) : super(key: key);
+  const SubmissionProgressExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

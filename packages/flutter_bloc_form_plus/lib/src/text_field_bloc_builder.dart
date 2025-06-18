@@ -70,7 +70,7 @@ class TextFieldBlocBuilder extends StatefulWidget {
   ///  * [maxLength], which discusses the precise meaning of "number of
   ///    characters" and how it may differ from the intuitive meaning.
   const TextFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.textFieldBloc,
     this.enableOnlyWhenFormBlocCanSubmit = false,
     this.isEnabled = true,
@@ -162,8 +162,7 @@ class TextFieldBlocBuilder extends StatefulWidget {
             maxLength > 0),
         keyboardType = keyboardType ??
             (maxLines == 1 ? TextInputType.text : TextInputType.multiline),
-        textStyle = textStyle ?? style,
-        super(key: key);
+        textStyle = textStyle ?? style;
 
   /// {@template flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   /// The `fieldBloc` for rebuild the widget
@@ -732,7 +731,7 @@ class TextFieldBlocBuilder extends StatefulWidget {
   }
 
   @override
-  _TextFieldBlocBuilderState createState() => _TextFieldBlocBuilderState();
+  State<TextFieldBlocBuilder> createState() => _TextFieldBlocBuilderState();
 }
 
 class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {

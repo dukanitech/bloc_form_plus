@@ -11,7 +11,7 @@ import 'package:bloc_form_plus/bloc_form.dart';
 /// A material design radio buttons.
 class RadioButtonGroupFieldBlocBuilder<Value> extends StatelessWidget {
   const RadioButtonGroupFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.selectFieldBloc,
     required this.itemBuilder,
     this.enableOnlyWhenFormBlocCanSubmit = false,
@@ -30,7 +30,7 @@ class RadioButtonGroupFieldBlocBuilder<Value> extends StatelessWidget {
     this.splashRadius,
     this.groupStyle = const FlexGroupStyle(),
     this.canTapItemTile,
-  }) : super(key: key);
+  });
 
   /// {@macro flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   final SelectFieldBloc<Value, dynamic> selectFieldBloc;

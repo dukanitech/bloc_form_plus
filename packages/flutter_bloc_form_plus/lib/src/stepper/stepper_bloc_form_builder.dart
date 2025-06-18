@@ -53,7 +53,7 @@ class FormBlocStep {
 
 class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
   const StepperFormBlocBuilder({
-    Key? key,
+    super.key,
     this.formBloc,
     required this.stepsBuilder,
     this.physics,
@@ -62,7 +62,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
     this.onStepContinue,
     this.onStepCancel,
     this.controlsBuilder,
-  }) : super(key: key);
+  });
 
   final T? formBloc;
 

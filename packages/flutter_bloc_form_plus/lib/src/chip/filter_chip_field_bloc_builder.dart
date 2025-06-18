@@ -127,7 +127,7 @@ class FilterChipFieldBlocBuilder<T> extends StatelessWidget {
   final ChipFieldItemBuilder<T> itemBuilder;
 
   const FilterChipFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.multiSelectFieldBloc,
     this.focusNode,
     this.nextFocusNode,
@@ -166,7 +166,7 @@ class FilterChipFieldBlocBuilder<T> extends StatelessWidget {
     this.checkmarkColor,
     this.avatarBorder = const CircleBorder(),
     required this.itemBuilder,
-  }) : super(key: key);
+  });
 
   FilterChipFieldTheme themeOf(BuildContext context) {
     final formTheme = FormTheme.of(context);

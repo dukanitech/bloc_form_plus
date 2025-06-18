@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
-import 'package:bloc_form_web/examples/wizard_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/wizard_form.dart';
 
 class WizardExamplePage extends StatelessWidget {
-  const WizardExamplePage({Key? key}) : super(key: key);
+  const WizardExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

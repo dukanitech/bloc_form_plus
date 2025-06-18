@@ -15,12 +15,12 @@ class ScrollableFieldBlocTarget extends StatefulWidget {
   final Widget child;
 
   const ScrollableFieldBlocTarget({
-    Key? key,
+    super.key,
     required this.singleFieldBloc,
     this.canScroll = true,
     this.mustScroll = false,
     required this.child,
-  }) : super(key: key);
+  });
 
   static ScrollableFieldBlocTargetState? findFirstWrong(BuildContext context) {
     ScrollableFieldBlocTargetState? scrollableState;

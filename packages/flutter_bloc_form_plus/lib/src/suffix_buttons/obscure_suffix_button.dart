@@ -13,14 +13,14 @@ class ObscureSuffixButton extends StatelessWidget {
   final Widget? trueIcon;
 
   const ObscureSuffixButton({
-    Key? key,
+    super.key,
     required this.singleFieldBloc,
     required this.isEnabled,
     required this.value,
     required this.onChanged,
     this.falseIcon,
     this.trueIcon,
-  }) : super(key: key);
+  });
 
   ObscureSuffixButtonTheme themeOf(BuildContext context) {
     final buttonTheme = FormTheme.of(context).obscureSuffixButtonTheme;

@@ -27,14 +27,14 @@ class ScrollableFormBlocManager extends StatelessWidget {
   final Widget child;
 
   const ScrollableFormBlocManager({
-    Key? key,
+    super.key,
     required this.formBloc,
     this.duration,
     this.alignment,
     this.curve,
     this.alignmentPolicy,
     required this.child,
-  }) : super(key: key);
+  });
 
   /// Search from the context for the first wrong field and make it visible by scrolling
   void ensureFieldVisible(BuildContext context) {

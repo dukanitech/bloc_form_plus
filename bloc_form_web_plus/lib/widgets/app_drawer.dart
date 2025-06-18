@@ -2,19 +2,18 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'package:bloc_form_web/constants/style.dart';
+import 'package:bloc_form_web_plus/constants/style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../routes.dart';
 
 class AppDrawer extends StatefulWidget {
-  const AppDrawer({required this.permanentlyDisplay, Key? key})
-      : super(key: key);
+  const AppDrawer({required this.permanentlyDisplay, super.key});
 
   final bool permanentlyDisplay;
 
   @override
-  _AppDrawerState createState() => _AppDrawerState();
+  State<AppDrawer> createState() => _AppDrawerState();
 }
 
 class _AppDrawerState extends State<AppDrawer> with RouteAware {
@@ -249,9 +248,10 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   }
 
   _launchGitHubURL() async {
-    const url = 'https://github.com/dukanitech/bloc_form';
-    if (await canLaunch(url)) {
-      await launch(url);
+    const urlPath = 'https://github.com/dukanitech/bloc_form';
+    final Uri url = Uri.parse(urlPath);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     }
   }
 
@@ -264,14 +264,13 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
 
 class DrawerItem extends StatefulWidget {
   const DrawerItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.routeName,
     required String? selectedRoute,
     required this.permanentlyDisplay,
     this.iconData,
-  })  : isCurrentRoute = routeName == selectedRoute,
-        super(key: key);
+  })  : isCurrentRoute = routeName == selectedRoute;
 
   final String title;
   final String routeName;
@@ -280,7 +279,7 @@ class DrawerItem extends StatefulWidget {
   final bool permanentlyDisplay;
 
   @override
-  _DrawerItemState createState() => _DrawerItemState();
+  State<DrawerItem> createState() => _DrawerItemState();
 }
 
 class _DrawerItemState extends State<DrawerItem> {

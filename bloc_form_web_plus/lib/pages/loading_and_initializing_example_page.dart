@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_form_web/examples/loading_and_initializing_form.dart';
-import 'package:bloc_form_web/widgets/widgets.dart';
+import 'package:bloc_form_web_plus/examples/loading_and_initializing_form.dart';
+import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
 class LoadingAndInitializingExamplePage extends StatelessWidget {
-  const LoadingAndInitializingExamplePage({Key? key}) : super(key: key);
+  const LoadingAndInitializingExamplePage({super.key});
 
   @override
   Widget build(BuildContext context) {

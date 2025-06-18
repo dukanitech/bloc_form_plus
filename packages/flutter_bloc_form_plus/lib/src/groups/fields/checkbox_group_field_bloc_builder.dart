@@ -11,7 +11,7 @@ import 'package:bloc_form_plus/bloc_form.dart';
 /// A material design checkboxes.
 class CheckboxGroupFieldBlocBuilder<Value> extends StatelessWidget {
   const CheckboxGroupFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.multiSelectFieldBloc,
     required this.itemBuilder,
     this.enableOnlyWhenFormBlocCanSubmit = false,
@@ -32,7 +32,7 @@ class CheckboxGroupFieldBlocBuilder<Value> extends StatelessWidget {
     this.side,
     this.groupStyle = const FlexGroupStyle(),
     this.canTapItemTile,
-  }) : super(key: key);
+  });
 
   /// {@macro flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   final MultiSelectFieldBloc<Value, dynamic> multiSelectFieldBloc;

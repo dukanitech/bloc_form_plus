@@ -13,7 +13,7 @@ class FormTheme extends Equatable {
   final TextStyle? textStyle;
 
   /// If [FieldTheme.textColor] is null this value is used
-  final MaterialStateProperty<Color?>? textColor;
+  final WidgetStateProperty<Color?>? textColor;
 
   /// If [FieldTheme.decorationTheme] is null this value is used
   final InputDecorationTheme? decorationTheme;
@@ -83,7 +83,7 @@ class FormTheme extends Equatable {
 
   FormTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     EdgeInsetsGeometry? padding,
     CheckboxFieldTheme? checkboxTheme,
@@ -153,21 +153,17 @@ class CheckboxFieldTheme extends FieldTheme {
   final bool canTapItemTile;
 
   const CheckboxFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.checkboxTheme,
     this.controlAffinity,
     this.canTapItemTile = false,
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   CheckboxFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     CheckboxThemeData? checkboxTheme,
     FieldBlocBuilderControlAffinity? controlAffinity,
@@ -307,22 +303,18 @@ class DateTimeFieldTheme extends FieldTheme {
   final ClearSuffixButtonTheme clearSuffixButtonTheme;
 
   const DateTimeFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.textAlign,
     this.showClearIcon,
     @Deprecated('Use clearSuffixButtonTheme.icon') this.clearIcon,
     this.clearSuffixButtonTheme = const ClearSuffixButtonTheme(),
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   DateTimeFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     bool? showClearIcon,
     Widget? clearIcon,
@@ -379,23 +371,19 @@ class DropdownFieldTheme extends FieldTheme {
   final Widget? moreIcon;
 
   const DropdownFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.textOverflow,
     this.maxLines,
     this.selectedTextStyle,
     this.selectedMaxLines,
     this.moreIcon,
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   DropdownFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     TextOverflow? textOverflow,
     int? maxLines,
@@ -461,20 +449,16 @@ class SwitchFieldTheme extends FieldTheme {
   final FieldBlocBuilderControlAffinity? controlAffinity;
 
   const SwitchFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.switchTheme,
     this.controlAffinity,
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   SwitchFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     SwitchThemeData? switchTheme,
     FieldBlocBuilderControlAffinity? controlAffinity,
@@ -513,21 +497,17 @@ class RadioFieldTheme extends FieldTheme {
   final bool canDeselect;
 
   const RadioFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.radioTheme,
     this.canTapItemTile = false,
     this.canDeselect = true,
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   RadioFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     RadioThemeData? radioTheme,
     bool? canTapItemTile,
@@ -578,9 +558,9 @@ class TextFieldTheme extends FieldTheme {
   final TextStyle? suggestionsTextStyle;
 
   const TextFieldTheme({
-    TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
-    InputDecorationTheme? decorationTheme,
+    super.textStyle,
+    super.textColor,
+    super.decorationTheme,
     this.textAlign,
     @Deprecated('Use clearSuffixButtonTheme.icon') this.clearIcon,
     this.clearSuffixButtonTheme = const ClearSuffixButtonTheme(),
@@ -588,15 +568,11 @@ class TextFieldTheme extends FieldTheme {
     @Deprecated('Use obscureSuffixButtonTheme.falseIcon') this.obscureFalseIcon,
     this.obscureSuffixButtonTheme = const ObscureSuffixButtonTheme(),
     this.suggestionsTextStyle,
-  }) : super(
-          textStyle: textStyle,
-          textColor: textColor,
-          decorationTheme: decorationTheme,
-        );
+  });
 
   TextFieldTheme copyWith({
     TextStyle? textStyle,
-    MaterialStateProperty<Color?>? textColor,
+    WidgetStateProperty<Color?>? textColor,
     InputDecorationTheme? decorationTheme,
     TextAlign? textAlign,
     Widget? clearIcon,

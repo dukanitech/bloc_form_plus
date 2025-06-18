@@ -10,7 +10,7 @@ import 'package:bloc_form_plus/bloc_form.dart';
 /// A material design dropdown.
 class DropdownFieldBlocBuilder<Value> extends StatelessWidget {
   const DropdownFieldBlocBuilder({
-    Key? key,
+    super.key,
     required this.selectFieldBloc,
     required this.itemBuilder,
     this.selectedItemBuilder,
@@ -35,7 +35,7 @@ class DropdownFieldBlocBuilder<Value> extends StatelessWidget {
     this.isExpanded = true,
     this.hint,
     this.disabledHint,
-  }) : super(key: key);
+  });
 
   /// {@macro flutter_bloc_form_plus.FieldBlocBuilder.fieldBloc}
   final SelectFieldBloc<Value, dynamic> selectFieldBloc;

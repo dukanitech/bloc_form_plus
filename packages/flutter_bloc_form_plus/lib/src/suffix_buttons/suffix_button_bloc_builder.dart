@@ -15,14 +15,14 @@ class SuffixButtonBuilderBase extends StatelessWidget {
   final Widget icon;
 
   const SuffixButtonBuilderBase({
-    Key? key,
+    super.key,
     required this.singleFieldBloc,
     this.isEnabled = true,
     this.visibleWithoutValue = true,
     this.appearDuration = const Duration(milliseconds: 300),
     required this.onTap,
     this.icon = const SizedBox.shrink(),
-  }) : super(key: key);
+  });
 
   static Widget defaultBuild(
     BuildContext context,
