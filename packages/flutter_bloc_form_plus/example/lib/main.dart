@@ -15,7 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: InputDecorationThemeData(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
           ),
