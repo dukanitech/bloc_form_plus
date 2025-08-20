@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +107,7 @@ class FakeUpload {
 }
 
 class SubmissionProgressForm extends StatelessWidget {
-  const SubmissionProgressForm({Key? key}) : super(key: key);
+  const SubmissionProgressForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +168,7 @@ class SubmissionProgressForm extends StatelessWidget {
 }
 
 class SubmitButton extends StatelessWidget {
-  const SubmitButton({Key? key}) : super(key: key);
+  const SubmitButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -177,13 +177,19 @@ class SubmitButton extends StatelessWidget {
     return BlocBuilder<SubmissionProgressFormBloc, FormBlocState>(
       builder: (context, state) {
         if (state is FormBlocSubmitting || state is FormBlocSuccess) {
-          return WillPopScope(
-              onWillPop: () async {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text(
-                        'Can\'t close, please wait until form is submitted, or cancel the submission.')));
-
-                return false;
+          return PopScope(
+              canPop: false, // blocks back by default
+              onPopInvokedWithResult: (didPop, result) {
+                if (!didPop) {
+                  // back press was attempted but blocked
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Can\'t close, please wait until form is submitted, or cancel the submission.',
+                      ),
+                    ),
+                  );
+                }
               },
               child: state is FormBlocSuccess ||
                       (state is FormBlocSubmitting && !state.isCanceling)
@@ -210,11 +216,11 @@ class LiquidLinearProgressIndicatorWithText extends ImplicitlyAnimatedWidget {
   final double percent;
 
   const LiquidLinearProgressIndicatorWithText({
-    Key? key,
+    super.key,
     required this.percent,
-    Duration duration = const Duration(milliseconds: 300),
-    Curve curve = Curves.linear,
-  }) : super(duration: duration, curve: curve, key: key);
+    super.duration = const Duration(milliseconds: 300),
+    super.curve,
+  });
 
   @override
   ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() =>
@@ -258,12 +264,17 @@ class LoadingDialog extends StatelessWidget {
 
   static void hide(BuildContext context) => Navigator.pop(context);
 
-  const LoadingDialog({Key? key}) : super(key: key);
+  const LoadingDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      canPop: false, // prevents popping
+      onPopInvokedWithResult: (didPop, result) {
+        // didPop == true if the route already popped
+        // didPop == false if it was blocked
+        // result is the value passed back when popping (can be null)
+      },
       child: Center(
         child: Card(
           child: Container(
@@ -279,7 +290,7 @@ class LoadingDialog extends StatelessWidget {
 }
 
 class SuccessScreen extends StatelessWidget {
-  const SuccessScreen({Key? key}) : super(key: key);
+  const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

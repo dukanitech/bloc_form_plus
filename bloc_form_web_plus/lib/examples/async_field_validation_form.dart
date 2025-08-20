@@ -141,8 +141,14 @@ class LoadingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      canPop: false, // prevents popping
+      onPopInvokedWithResult: (didPop, result) {
+        // didPop == true if the route already popped
+        // didPop == false if it was blocked
+        // result is the value passed back when popping (can be null)
+      },
+
       child: Center(
         child: Card(
           child: Container(
