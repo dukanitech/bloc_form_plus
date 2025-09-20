@@ -3,26 +3,23 @@ name: Bloc Form Plus Web
 on:
   push:
     branches:
-      - main  # build and deploy when main branch is pushed
-
+      - main
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
     permissions:
-      contents: write  # optional since we use PAT
-
+      contents: write # Grants write permission for the repository contents
+      pages: write    # Grants write permission to update GitHub Pages
+      id-token: write # Required for some newer deployment actions
+    runs-on: ubuntu-latest
     env:
       working-directory: ./bloc_form_web_plus
-
     steps:
-      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: true
+          persist-credentials: true  # important for pushing
 
-      # 2️⃣ Setup Flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -30,26 +27,23 @@ jobs:
           channel: stable
           cache: true
 
-      # 3️⃣ Enable web support
       - name: Enable Flutter web
         run: flutter config --enable-web
         working-directory: ${{ env.working-directory }}
 
-      # 4️⃣ Install dependencies
       - name: Install dependencies
         run: flutter pub get
         working-directory: ${{ env.working-directory }}
 
-      # 5️⃣ Build web release
       - name: Build Flutter web
         run: flutter build web --release
         working-directory: ${{ env.working-directory }}
 
-      # 6️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.ACCESS_TOKEN }}  # use PAT
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ env.working-directory }}/build/web
-        
-          keep_files: true  # optional: keep existing files in gh-pages
+          keep_files: true
+          user_name: github-actions
+          user_email: github-actions@github.com
