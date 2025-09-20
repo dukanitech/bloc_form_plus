@@ -7,6 +7,10 @@ on:
 
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write # Grants write permission for the repository contents
+      pages: write    # Grants write permission to update GitHub Pages
+      id-token: write # Required for some newer deployment actions
     runs-on: ubuntu-latest
     env:
       working-directory: ./bloc_form_web_plus
