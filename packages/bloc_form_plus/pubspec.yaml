@@ -1,6 +1,6 @@
 name: bloc_form_plus
 description: 'Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface. Async Validation, Progress, Dynamic fields, and more.'
-version: 0.1.3
+version: 0.2.2
 homepage: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form_plus'
 repository: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form_plus'
 issue_tracker: 'https://github.com/dukanitech/bloc_form/issues'

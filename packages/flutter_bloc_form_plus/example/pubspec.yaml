@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc_form_plus: ^0.1.3
+  flutter_bloc_form_plus: ^0.2.2
 
 dev_dependencies:
   flutter_test:

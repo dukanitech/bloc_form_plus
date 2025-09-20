@@ -34,7 +34,7 @@ Fixed common issue with BuildContext usage across async gaps, avoiding errors ca
 * **`Upgrade Bloc to latest version 9.1.1`**
 
 
-# 0.2.0
+# 0.2.2
 ## FieldBlocValidators Update
 
 **Date:** 2025-09-20

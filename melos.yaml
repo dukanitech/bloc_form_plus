@@ -1,8 +1,9 @@
 name: bloc_form_melos
 
 packages:
-  - bloc_form_web
-  - packages/**
+   - bloc_form_web_plus
+    - packages/bloc_form_plus
+    - packages/flutter_bloc_form_plus
 
 scripts:
   analyze:
