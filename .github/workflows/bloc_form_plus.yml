@@ -13,11 +13,11 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: packages/bloc_form_plus
-
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -30,7 +30,7 @@ jobs:
           channel: 'stable'
 
       - name: Install Dependencies
-        run: pub get
+        run: flutter pub get
 
       - name: Format
         run: dart format --set-exit-if-changed .
@@ -39,4 +39,4 @@ jobs:
         run: dart analyze --fatal-infos --fatal-warnings .
 
       - name: Run Tests
-        run: dart test
+        run: flutter test
