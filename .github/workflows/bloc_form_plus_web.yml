@@ -34,11 +34,11 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Build web
-        run: flutter build web --release --web-renderer html --base-href="/bloc_form_web_plus/"
+        run: flutter build web --release  --wasm
         working-directory: ${{ env.working-directory }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # or ACCESS_TOKEN if you prefer PAT
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./bloc_form_web_plus/build/web
