@@ -31,7 +31,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Build web
-        run: flutter build web --release --wasm
+        run: flutter build web --release
         working-directory: ${{ env.working-directory }}
 
       - name: Deploy
