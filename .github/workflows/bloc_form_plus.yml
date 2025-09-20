@@ -1,23 +1,23 @@
-name: bloc_form
+name: bloc_form_plus
 
 on:
   push:
     paths:
-      - "packages/bloc_form/**"
-      - ".github/workflows/bloc_form.yaml"
+      - "packages/bloc_form_plus/**"
+      - ".github/workflows/bloc_form_plus.yaml"
 
   pull_request:
     paths:
-      - "packages/bloc_form/**"
-      - ".github/workflows/bloc_form.yaml"
+      - "packages/bloc_form_plus/**"
+      - ".github/workflows/bloc_form_plus.yaml"
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+
     defaults:
       run:
-        working-directory: packages/bloc_form
-
-    runs-on: ubuntu-latest
+        working-directory: packages/bloc_form_plus
 
     steps:
       - name: Checkout
@@ -26,11 +26,11 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.2'
+          flutter-version: '3.35.4'
           channel: 'stable'
 
       - name: Install Dependencies
-        run: pub get
+        run: flutter pub get
 
       - name: Format
         run: dart format --set-exit-if-changed .
@@ -39,4 +39,4 @@ jobs:
         run: dart analyze --fatal-infos --fatal-warnings .
 
       - name: Run Tests
-        run: dart test
+        run: flutter test
