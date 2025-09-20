@@ -5,12 +5,13 @@ on:
     branches:
       - main  # build and deploy when main branch is pushed
 
-permissions:
-  contents: write  # optional since we use PAT
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # optional since we use PAT
+
     env:
       working-directory: ./bloc_form_web_plus
 
@@ -50,6 +51,5 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}  # use PAT
           publish_dir: ${{ env.working-directory }}/build/web
-          user_name: github-actions
-          user_email: github-actions@github.com
+        
           keep_files: true  # optional: keep existing files in gh-pages
