@@ -31,7 +31,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Build web
-        run: flutter build web --release --web-renderer html --base-href="/bloc_form_web_plus/"
+        run: flutter build web --release --wasm
         working-directory: ${{ env.working-directory }}
 
       - name: Deploy
