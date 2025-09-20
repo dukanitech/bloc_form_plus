@@ -56,6 +56,11 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
     validators: [FieldBlocValidators.required],
   );
 
+  final select2X = SelectFieldBloc(
+    items:  ['Apple', 'Banana', 'Orange', 'Grapes', 'Mango', 'Peach'],
+    validators: [FieldBlocValidators.required],
+  );
+
   final multiSelect1 = MultiSelectFieldBloc<String, dynamic>(
     items: [
       'Option 1',
@@ -84,6 +89,7 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
       boolean2,
       select1,
       select2,
+      select2X,
       multiSelect1,
       date1,
       dateAndTime1,
@@ -187,6 +193,67 @@ class AllFieldsForm extends StatelessWidget {
                           child: Text(item),
                         ),
                       ),
+                        RadioGroupFieldBlocBuilder<String>(
+                        groupStyle: const WrapGroupStyle(
+                          direction: Axis.horizontal
+                        ),
+                        selectFieldBloc: formBloc.select2,
+                        itemBuilder: (context, item) => FieldItem(child: Text(item)),
+                        direction: RadioDirection.right, // left, right, top, bottom
+                        padding: const EdgeInsets.all(4),
+                        radioSize: 30,
+                      labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+                       spacing: 8,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                      ),
+                      Card(
+                        child: SizedBox(
+                        
+                          child: RadioGroupFieldBlocBuilder<String>(
+                            selectFieldBloc: formBloc.select2X,
+                            itemBuilder: (context, item) => FieldItem(child: Text(item)),
+                            direction: RadioDirection.right,
+                            radioSize: 24,
+                            spacing: 2,
+                            padding: const EdgeInsets.all(4),
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            groupStyle: const WrapGroupStyle(
+                           //   direction: Axis.vertical,
+                              alignment: WrapAlignment.center,      // center items horizontally
+                              spacing: 8,                           // 8px space between items
+                              runAlignment: WrapAlignment.center,   // center rows vertically
+                              runSpacing: 12,                        // 12px space between rows
+                              crossAxisAlignment: WrapCrossAlignment.center, // center items in each row
+                            )
+                          ),
+                        ),
+                      ),
+                      //GRID
+                  Card(
+                    elevation: 8,
+                    child: RadioGroupFieldBlocBuilder<String>(
+                      selectFieldBloc: formBloc.select2X,
+                      itemBuilder: (context, item) => FieldItem(child: Center(child: Text(item))),
+                      direction: RadioDirection.bottom, // radio on left
+                     // mainAxisAlignment: MainAxisAlignment.center,
+                     // crossAxisAlignment: CrossAxisAlignment.center,
+                      radioSize: 24,
+                      spacing: 2,
+                      groupStyle: GridGroupStyle(
+                        height: 400,
+                        //width: 600,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4, // 3 columns
+                         // mainAxisSpacing: 12,
+                         // crossAxisSpacing: 12,
+                         // childAspectRatio: 2, // width / height ratio
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(1),
+                    ),
+                  ),
                       CheckboxGroupFieldBlocBuilder<String>(
                         multiSelectFieldBloc: formBloc.multiSelect1,
                         decoration: const InputDecoration(

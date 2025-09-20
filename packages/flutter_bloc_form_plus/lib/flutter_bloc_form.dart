@@ -18,6 +18,7 @@ export 'src/fields/simple_field_bloc_builder.dart';
 export 'src/bloc_form_listener.dart';
 export 'src/groups/fields/checkbox_group_field_bloc_builder.dart';
 export 'src/groups/fields/radio_button_group_field_bloc.dart';
+export 'src/groups/fields/radio_group_field_bloc.dart';
 export 'src/groups/widgets/group_view.dart';
 export 'src/slider/slider_field_bloc_builder.dart';
 export 'src/stepper/stepper_bloc_form_builder.dart';
