@@ -1,21 +1,21 @@
-name: bloc_form
+name: bloc_form_plus
 
 on:
   push:
     paths:
-      - "packages/bloc_form/**"
-      - ".github/workflows/bloc_form.yaml"
+      - "packages/bloc_form_plus/**"
+      - ".github/workflows/bloc_form_plus.yaml"
 
   pull_request:
     paths:
-      - "packages/bloc_form/**"
-      - ".github/workflows/bloc_form.yaml"
+      - "packages/bloc_form_plus/**"
+      - ".github/workflows/bloc_form_plus.yaml"
 
 jobs:
   build:
     defaults:
       run:
-        working-directory: packages/bloc_form
+        working-directory: packages/bloc_form_plus
 
     runs-on: ubuntu-latest
 
@@ -26,7 +26,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.2'
+          flutter-version: '3.35.4'
           channel: 'stable'
 
       - name: Install Dependencies
