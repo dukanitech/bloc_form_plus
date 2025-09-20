@@ -254,6 +254,22 @@ class AllFieldsForm extends StatelessWidget {
                       padding: const EdgeInsets.all(1),
                     ),
                   ),
+
+                      Card(
+                        child: RadioMenuButtonFieldBlocBuilder<String>(
+                          selectFieldBloc: formBloc.select2,
+                          menuLabel: const Text("Select Color"),
+                          itemBuilder: (context, item) {
+                            return FieldItem(child: Text(
+                              item
+                            ));
+                          },
+                          radioSize: 10,
+                          spacing: 6,
+
+                        ),
+                      ),
+
                       CheckboxGroupFieldBlocBuilder<String>(
                         multiSelectFieldBloc: formBloc.multiSelect1,
                         decoration: const InputDecoration(
