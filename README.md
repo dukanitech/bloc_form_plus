@@ -36,7 +36,7 @@ Easy Form State Management using BLoC pattern. Separate the Form State and Busin
         <tr>
             <td> 
                 <a>
-                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form1.gif" width="230"/>
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/main/screenshots/bloc_form1.gif" width="230"/>
                 </a>
             </td>    
             <td>   
@@ -46,14 +46,14 @@ Easy Form State Management using BLoC pattern. Separate the Form State and Busin
             </td>
              <td>   
                 <a>
-                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form3.gif" width="230"/>                   
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/main/screenshots/bloc_form3.gif" width="230"/>                   
                 </a>
             </td>        
         </tr>
         <tr>
             <td> 
                 <a>
-                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/master/screenshots/bloc_form4.gif" width="230"/>
+                    <img src="https://raw.githubusercontent.com/dukanitech/bloc_form/main/screenshots/bloc_form4.gif" width="230"/>
                 </a>
             </td>    
             <td>   
