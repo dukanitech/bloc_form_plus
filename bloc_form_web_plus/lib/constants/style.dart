@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final colors = <Color>[Colors.pink, Colors.deepOrangeAccent];
+final colors = <Color>[Color(0xff246bad), Color(0xff2164a4)];
 final colors2 = <Color>[
   Colors.white,
   Colors.blueAccent.withAlpha(10),

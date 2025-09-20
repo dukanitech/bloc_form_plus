@@ -47,9 +47,11 @@ class ExampleScaffold extends StatelessWidget {
                     elevation: 1.0,
                     toolbarHeight: displayMobileLayout(context) ? null : 61,
                     title: Text(title),
-                    backgroundColor: Colors.deepOrangeAccent,
-                    bottom: const TabBar(
-                      indicatorColor: Colors.white,
+                   backgroundColor: Color(0XFFFFFFFF),//r Color(0xff246bad),
+                    bottom:  TabBar(
+                      indicatorColor:  Color(0xff246bad),
+                      labelColor: Color(0xff246bad),
+                      unselectedLabelColor: Colors.blue[300],
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
@@ -73,6 +75,7 @@ class ExampleScaffold extends StatelessWidget {
                   body: Container(
                     // decoration: BoxDecoration(
                     //   gradient: scaffoldBodyGradient,
+                    //
                     // ),
                     color: const Color(0xFFF5F5F5),
                     child: TabBarView(

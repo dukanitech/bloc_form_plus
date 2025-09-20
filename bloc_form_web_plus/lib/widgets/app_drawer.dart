@@ -56,9 +56,11 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
       child: Drawer(
         elevation: widget.permanentlyDisplay ? 0.0 : 16,
         child: Container(
-          decoration: const BoxDecoration(
-              // gradient: drawerBodyGradient,
+          decoration:  BoxDecoration(
+              gradient: drawerBodyGradient,
+           // borderRadius: BorderRadius.only(topRight: Radius.circular(20)),
               ),
+
           child: Column(
             children: [
               _buildHeader(),
@@ -166,15 +168,15 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
       ),
       child: SafeArea(
         child: Container(
-          height: 133,
+          height: 136,
           decoration: BoxDecoration(
-            gradient: mainGradient,
+           gradient: mainGradient,
           ),
           child: Stack(
             children: <Widget>[
               Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.only(right: 55),
+               padding: const EdgeInsets.only(right: 55),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: const <Widget>[
@@ -308,7 +310,7 @@ class _DrawerItemState extends State<DrawerItem> {
             onTap: () async {
               await _navigateTo(context, widget.routeName);
             },
-            borderRadius: _borderRadius,
+           // borderRadius: _borderRadius,
             child: Theme(
               data: Theme.of(context).copyWith(primaryColor: Colors.white),
               child: ListTile(

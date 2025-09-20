@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       title: 'bloc_form',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
-        primaryColor: Colors.deepOrangeAccent,
+        primaryColor: Colors.blueAccent,
         fontFamily: 'JosefinSans',
       ),
       debugShowCheckedModeBanner: false,
