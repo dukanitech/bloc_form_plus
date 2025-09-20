@@ -1,10 +1,11 @@
-name:  Bloc Form Plus Web
+name: Bloc Form Plus Web
+
 on:
   push:
     branches:
       - main
     # paths:
-    #   - 'bloc_form_web/**'
+    #   - 'bloc_form_web_plus/**'
     #   - '.github/workflows/**'
 
 jobs:
@@ -15,29 +16,29 @@ jobs:
       working-directory: ./bloc_form_web_plus
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.35.4'
-        channel: 'stable'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.4'
+          channel: 'stable'
 
-    - name: Enable Flutter web
-      run: flutter config --enable-web
-      working-directory: ${{ env.working-directory }}
+      - name: Enable Flutter web
+        run: flutter config --enable-web
+        working-directory: ${{ env.working-directory }}
 
-    - name: Install dependencies
-      run: flutter packages get
-      working-directory: ${{ env.working-directory }}
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: ${{ env.working-directory }}
 
-    - name: Build web
-      run: flutter build web --web-renderer html
-      working-directory: ${{ env.working-directory }}
+      - name: Build web
+        run: flutter build web --release --web-renderer html --base-href="/bloc_form_web_plus/"
+        working-directory: ${{ env.working-directory }}
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./bloc_form_web_plus/build/web
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # or ACCESS_TOKEN if you prefer PAT
+          publish_dir: ./bloc_form_web_plus/build/web
