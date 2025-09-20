@@ -36,7 +36,7 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Build Flutter web
-        run: flutter build web --release
+        run: flutter build web --release --base-href /bloc_form_plus/
         working-directory: ${{ env.working-directory }}
 
       - name: Deploy to GitHub Pages
