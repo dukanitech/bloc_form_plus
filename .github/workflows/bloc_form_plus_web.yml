@@ -6,21 +6,22 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     env:
       working-directory: ./bloc_form_web_plus
-
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true  # important for pushing
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-           flutter-version: "3.35.4"
-           channel: stable
-           cache: true
+          flutter-version: "3.35.4"
+          channel: stable
+          cache: true
 
       - name: Enable Flutter web
         run: flutter config --enable-web
@@ -30,12 +31,15 @@ jobs:
         run: flutter pub get
         working-directory: ${{ env.working-directory }}
 
-      - name: Build web
+      - name: Build Flutter web
         run: flutter build web --release
         working-directory: ${{ env.working-directory }}
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./bloc_form_web_plus/build/web
+          publish_dir: ${{ env.working-directory }}/build/web
+          keep_files: true
+          user_name: github-actions
+          user_email: github-actions@github.com
