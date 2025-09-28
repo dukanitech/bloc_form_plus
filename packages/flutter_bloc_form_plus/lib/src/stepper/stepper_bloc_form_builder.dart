@@ -17,7 +17,7 @@ class FormBlocStep {
   ///
   /// The [title], [content], and [state] arguments must not be null.
   const FormBlocStep({
-    required this.title,
+     this.title,
     this.subtitle,
     required this.content,
     this.state = StepState.indexed,
@@ -25,7 +25,7 @@ class FormBlocStep {
   });
 
   /// The title of the step that typically describes it.
-  final Widget title;
+  final Widget? title;
 
   /// The subtitle of the step that appears below the title and has a smaller
   /// font size. It typically gives more details that complement the title.
@@ -58,6 +58,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
     required this.stepsBuilder,
     this.physics,
     this.type = StepperType.vertical,
+    this.showTitle = true,
     this.onStepTapped,
     this.onStepContinue,
     this.onStepCancel,
@@ -85,6 +86,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
   /// underneath as opposed to the [StepperType.vertical] case where it is
   /// displayed in-between.
   final StepperType type;
+  final bool showTitle;
 
   /// The callback called when a step is tapped, with its index passed as
   /// an argument.
@@ -180,6 +182,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
               : (step) => onStepTapped?.call(formBloc, step),
           physics: physics,
           type: type,
+          showTitle: showTitle,
           steps: [
             for (var i = 0; i < formBlocSteps.length; i++)
               Step(

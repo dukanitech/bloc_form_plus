@@ -88,7 +88,8 @@ class Step {
   ///
   /// The [title], [content], and [state] arguments must not be null.
   const Step({
-    required this.title,
+     this.title,
+    this.showTitle = true,
     this.subtitle,
     required this.content,
     this.state = StepState.indexed,
@@ -96,7 +97,8 @@ class Step {
   });
 
   /// The title of the step that typically describes it.
-  final Widget title;
+  final Widget? title;
+  final bool showTitle;
 
   /// The subtitle of the step that appears below the title and has a smaller
   /// font size. It typically gives more details that complement the title.
@@ -151,8 +153,10 @@ class Stepper extends StatefulWidget {
     this.controlsBuilder,
     this.elevation,
     this.margin,
+    this.showTitle = true
   })  : assert(0 <= currentStep && currentStep < steps.length);
 
+  final bool showTitle;
   /// The steps of the stepper whose titles, subtitles, icons always get shown.
   ///
   /// The length of [steps] must not change.
@@ -540,12 +544,14 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        AnimatedDefaultTextStyle(
+        if(widget.steps[index].title != null )
+          AnimatedDefaultTextStyle(
           style: _titleStyle(index)!,
           duration: kThemeAnimationDuration,
           curve: Curves.fastOutSlowIn,
-          child: widget.steps[index].title,
+          child: widget.steps[index].title!,
         ),
+
         if (widget.steps[index].subtitle != null)
           Container(
             margin: const EdgeInsets.only(top: 2.0),
@@ -588,7 +594,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
   Widget _buildVerticalBody(int index) {
     return Stack(
       children: <Widget>[
-        PositionedDirectional(
+       widget.showTitle ? PositionedDirectional(
           start: 24.0,
           top: 0.0,
           bottom: 0.0,
@@ -603,7 +609,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
               ),
             ),
           ),
-        ),
+        ): SizedBox.shrink(),
         AnimatedCrossFade(
           firstChild: Container(height: 0.0),
           secondChild: Container(
@@ -641,7 +647,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
           Column(
             key: _keys[i],
             children: <Widget>[
-              InkWell(
+            widget.showTitle?  InkWell(
                 onTap: widget.steps[i].state != StepState.disabled &&
                         widget.onStepTapped != null
                     ? () {
@@ -660,7 +666,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
                     : null,
                 canRequestFocus: widget.steps[i].state != StepState.disabled,
                 child: _buildVerticalHeader(i),
-              ),
+              ):SizedBox.shrink(),
               _buildVerticalBody(i),
             ],
           ),
@@ -716,7 +722,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        SizedBox(
+        widget.showTitle ? SizedBox(
           height: widget.titleHeight,
           child: ListView.builder(
             shrinkWrap: true,
@@ -724,7 +730,7 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
             itemCount: children.length,
             itemBuilder: (BuildContext context, int index) => children[index],
           ),
-        ),
+        ): SizedBox.shrink(),
         Expanded(
           child: ListView(
             physics: widget.physics,

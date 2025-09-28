@@ -1,7 +1,42 @@
+# 0.2.3
+ * **Minor fix of changelog arrangement**
 
-# 0.1.0
+# 0.2.2
+## FieldBlocValidators Update
 
-* Initial Version of the library.
+**Date:** 2025-09-20
+
+**Changes:**
+
+* **Added New Validators:**
+  * `minLength(int min)`
+  * `maxLength(int max)`
+  * `phone()`
+  * `number()`
+  * `url()`
+  * `date()` (YYYY-MM-DD)
+  * `regex(String pattern)`
+
+  * **Customizable Error Messages:**
+    * All validators now support an optional `errorMessage` parameter to override default messages per field.
+    * Example:
+      ```dart
+      validator: (value) => FieldBlocValidators.minLength(8, errorMessage: "Must be 8+ chars")(value);
+      ```
+
+
+* **Improved Documentation & Comments:**
+  * Added clear DartDoc comments for each validator, explaining behavior, return value, and usage.
+
+  * **Backward Compatibility:**
+    * Existing validators (`required`, `email`, `passwordMin6Chars`, `confirmPassword`) remain unchanged in usage.
+    * Supports both legacy single-error and new override/customization usage.
+
+# 0.1.3
+* **`Changed from InputDecorationTheme to InputDecorationThemeData`**
+
+* **`Upgrade to support flutter 3.35`**
+* **`Upgrade Bloc to latest version 9.1.1`**
 
 # 0.1.2
 
@@ -27,41 +62,10 @@
 ## 🐞 Fixes
 Fixed common issue with BuildContext usage across async gaps, avoiding errors caused by calling context after await.
 
-# 0.1.3
-* **`Changed from InputDecorationTheme to InputDecorationThemeData`**
-
-* **`Upgrade to support flutter 3.35`**
-* **`Upgrade Bloc to latest version 9.1.1`**
 
 
-# 0.2.2
-## FieldBlocValidators Update
 
-**Date:** 2025-09-20
+# 0.1.0
 
-**Changes:**
-
-* **Added New Validators:**
-    * `minLength(int min)`
-    * `maxLength(int max)`
-    * `phone()`
-    * `number()`
-    * `url()`
-    * `date()` (YYYY-MM-DD)
-    * `regex(String pattern)`
-
-  * **Customizable Error Messages:**
-      * All validators now support an optional `errorMessage` parameter to override default messages per field.
-      * Example:
-        ```dart
-        validator: (value) => FieldBlocValidators.minLength(8, errorMessage: "Must be 8+ chars")(value);
-        ```
-
-
-* **Improved Documentation & Comments:**
-    * Added clear DartDoc comments for each validator, explaining behavior, return value, and usage.
-
-  * **Backward Compatibility:**
-      * Existing validators (`required`, `email`, `passwordMin6Chars`, `confirmPassword`) remain unchanged in usage.
-      * Supports both legacy single-error and new override/customization usage.
+* Initial Version of the library.
 

@@ -1,7 +1,72 @@
+# 0.2.3
 
-# 0.1.0
+### Added
+- **`showTitle` property** to `StepperFormBlocBuilder`
+  - Default: `true` (backwards compatible).
+  - Allows hiding stepper titles when set to `false`.
+## Adds flexibility for cleaner UIs (e.g., when using a progress bar or when step labels are unnecessary).
 
-Initial Version of the library.
+### Example
+
+```dart
+StepperFormBlocBuilder<WizardFormBloc>(
+  formBloc: context.read<WizardFormBloc>(),
+  type: StepperType.horizontal,
+  showTitle: false, // hides step titles
+);
+```
+
+
+# 0.2.2
+
+**Date:** 2025-09-20
+
+**Changes:**
+
+* **New Enum:** `RadioDirection`
+  * Values: `left`, `right`, `top`, `bottom`
+  * Allows controlling the **position of the label relative to the radio button**.
+
+* **New Widget:** `RadioGroupFieldBlocBuilder`
+  * Fully supports **label and radio alignment** using the `RadioDirection` enum.
+  * Supports **group layout customization**:
+    * `GridView Style` for multi-column layouts
+    * `Wrap Stayle` for flexible, auto-wrapping items
+    * `Flex style` for row or column alignment
+  * Uses latest **RadioGroup features** from Flutter for selection, focus, and accessibility.
+
+* **Customizable Features:**
+  * Label and radio alignment controlled per item or globally.
+  * Works with `FieldBloc` state for **reactive updates**.
+  * Supports **validation and error messages** as in other FieldBloc builders.
+
+* **Example Usage:**
+```dart
+RadioGroupFieldBlocBuilder<String>(
+                            selectFieldBloc: formBloc.select2X,
+                            itemBuilder: (context, item) => FieldItem(child: Text(item)),
+                            direction: RadioDirection.right,
+                            radioSize: 24,
+                            spacing: 2,
+                            padding: const EdgeInsets.all(4),
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            groupStyle: const WrapGroupStyle(
+                           //   direction: Axis.vertical,
+                              alignment: WrapAlignment.center,      // center items horizontally
+                              spacing: 8,                           // 8px space between items
+                              runAlignment: WrapAlignment.center,   // center rows vertically
+                              runSpacing: 12,                        // 12px space between rows
+                              crossAxisAlignment: WrapCrossAlignment.center, // center items in each row
+                            )
+                          );
+
+```
+
+* **New Widget:** `RadioMenuButtonFieldBlocBuilder`
+  * Provides a **Material 3 `RadioMenuButton` implementation** integrated with `FieldBloc`.
+  * Supports reactive **selected value updates**, **validation**, and **customized labels**.
+  * Works well for **dropdown-like radio selection menus** in forms.
 
 # 0.1.2
 
@@ -33,53 +98,10 @@ Fixed common issue with BuildContext usage across async gaps, avoiding errors ca
 * **`Upgrade to support flutter 3.35`**
 * **`Upgrade Bloc to latest version 9.1.1`**
 
-# 0.2.2
 
-**Date:** 2025-09-20
 
-**Changes:**
+# 0.1.0
 
-* **New Enum:** `RadioDirection`  
-  * Values: `left`, `right`, `top`, `bottom`  
-  * Allows controlling the **position of the label relative to the radio button**.
+Initial Version of the library.
 
-* **New Widget:** `RadioGroupFieldBlocBuilder`  
-  * Fully supports **label and radio alignment** using the `RadioDirection` enum.  
-  * Supports **group layout customization**:
-    * `GridView Style` for multi-column layouts  
-    * `Wrap Stayle` for flexible, auto-wrapping items  
-    * `Flex style` for row or column alignment  
-  * Uses latest **RadioGroup features** from Flutter for selection, focus, and accessibility.
 
-* **Customizable Features:**  
-  * Label and radio alignment controlled per item or globally.  
-  * Works with `FieldBloc` state for **reactive updates**.  
-  * Supports **validation and error messages** as in other FieldBloc builders.
-
-* **Example Usage:**
-```dart
-RadioGroupFieldBlocBuilder<String>(
-                            selectFieldBloc: formBloc.select2X,
-                            itemBuilder: (context, item) => FieldItem(child: Text(item)),
-                            direction: RadioDirection.right,
-                            radioSize: 24,
-                            spacing: 2,
-                            padding: const EdgeInsets.all(4),
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            groupStyle: const WrapGroupStyle(
-                           //   direction: Axis.vertical,
-                              alignment: WrapAlignment.center,      // center items horizontally
-                              spacing: 8,                           // 8px space between items
-                              runAlignment: WrapAlignment.center,   // center rows vertically
-                              runSpacing: 12,                        // 12px space between rows
-                              crossAxisAlignment: WrapCrossAlignment.center, // center items in each row
-                            )
-                          );
-
-```
-
-* **New Widget:** `RadioMenuButtonFieldBlocBuilder`
-  * Provides a **Material 3 `RadioMenuButton` implementation** integrated with `FieldBloc`.
-  * Supports reactive **selected value updates**, **validation**, and **customized labels**.
-  * Works well for **dropdown-like radio selection menus** in forms.
