@@ -108,6 +108,7 @@ class LoginForm extends StatelessWidget {
                       ),
                       TextFieldBlocBuilder(
                         textFieldBloc: loginFormBloc.password,
+                        sensitiveContent: true,
                         suffixButton: SuffixButton.obscureText,
                         autofillHints: const [AutofillHints.password],
                         decoration: const InputDecoration(

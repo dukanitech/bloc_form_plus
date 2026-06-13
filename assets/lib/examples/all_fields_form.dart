@@ -18,6 +18,8 @@ class App extends StatelessWidget {
 class AllFieldsFormBloc extends FormBloc<String, String> {
   final text1 = TextFieldBloc();
 
+  final adaptiveDemo = TextFieldBloc();
+
   final boolean1 = BooleanFieldBloc();
 
   final boolean2 = BooleanFieldBloc();
@@ -28,6 +30,21 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 
   final select2 = SelectFieldBloc(
     items: ['Option 1', 'Option 2'],
+  );
+
+  final select3 = SelectFieldBloc<String, dynamic>(
+    items: ['Alpha', 'Beta', 'Gamma'],
+  );
+
+  final city = TextFieldBloc(
+    suggestions: (pattern) async {
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+      const cities = ['Paris', 'London', 'New York'];
+      if (pattern.isEmpty) return cities;
+      return cities
+          .where((c) => c.toLowerCase().contains(pattern.toLowerCase()))
+          .toList();
+    },
   );
 
   final multiSelect1 = MultiSelectFieldBloc<String, dynamic>(
@@ -46,10 +63,13 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
   AllFieldsFormBloc() {
     addFieldBlocs(fieldBlocs: [
       text1,
+      adaptiveDemo,
       boolean1,
       boolean2,
       select1,
       select2,
+      select3,
+      city,
       multiSelect1,
       date1,
       dateAndTime1,
@@ -119,6 +139,23 @@ class AllFieldsForm extends StatelessWidget {
                             prefixIcon: Icon(Icons.text_fields),
                           ),
                         ),
+                        AdaptiveTextFieldBlocBuilder(
+                          textFieldBloc: formBloc.adaptiveDemo,
+                          forceMaterial: true,
+                          decoration: const InputDecoration(
+                            labelText: 'AdaptiveTextFieldBlocBuilder',
+                            prefixIcon: Icon(Icons.phone_iphone),
+                            helperText: 'Use forceCupertino on iOS / toggle in What\'s New',
+                          ),
+                        ),
+                        TextFieldBlocBuilder(
+                          textFieldBloc: formBloc.city,
+                          decoration: const InputDecoration(
+                            labelText: 'TypeAhead (suggestions)',
+                            prefixIcon: Icon(Icons.search),
+                            helperText: 'Type "Lon" or "Par"',
+                          ),
+                        ),
                         DropdownFieldBlocBuilder<String>(
                           selectFieldBloc: formBloc.select1,
                           decoration: const InputDecoration(
@@ -133,6 +170,17 @@ class AllFieldsForm extends StatelessWidget {
                           selectFieldBloc: formBloc.select2,
                           decoration: const InputDecoration(
                             labelText: 'RadioButtonGroupFieldBlocBuilder',
+                            prefixIcon: SizedBox(),
+                          ),
+                          itemBuilder: (context, item) => FieldItem(
+                            child: Text(item),
+                          ),
+                        ),
+                        RadioGroupFieldBlocBuilder<String>(
+                          selectFieldBloc: formBloc.select3,
+                          direction: RadioDirection.top,
+                          decoration: const InputDecoration(
+                            labelText: 'RadioGroupFieldBlocBuilder',
                             prefixIcon: SizedBox(),
                           ),
                           itemBuilder: (context, item) => FieldItem(
