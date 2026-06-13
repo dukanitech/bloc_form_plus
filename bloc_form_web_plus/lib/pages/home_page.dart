@@ -51,10 +51,50 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 6),
                 _buildText(
                     'Separate the form state and Business Logic from the User Interface.'),
+                const SizedBox(height: 12),
+                Text(
+                  'v0.3.0 · Flutter 3.44.2',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white.withAlpha(200),
+                  ),
+                ),
                 const SizedBox(height: 40),
                 _buildText('bloc_form uses '),
                 _buildText('Bloc Library', url: 'https://bloclibrary.dev/'),
                 const SizedBox(height: 40),
+                SizedBox(
+                  height: 50,
+                  width: 250,
+                  child: TextButton(
+                    onPressed: () => Navigator.of(context)
+                        .pushReplacementNamed(RouteNames.whatsNewExample),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        side: const BorderSide(
+                          width: 2,
+                          color: Colors.amberAccent,
+                        ),
+                      ),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                      child: const Text(
+                        'WHAT\'S NEW 0.3.0',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 SizedBox(
                   height: 50,
                   width: 250,

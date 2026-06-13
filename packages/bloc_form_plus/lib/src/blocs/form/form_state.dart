@@ -100,6 +100,11 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
     return _fieldBlocs[step]?.values;
   }
 
+  /// All [FieldBloc]s in the form.
+  ///
+  /// Alias for [flatFieldBlocs] that mirrors Flutter's `FormState.fields`.
+  Iterable<FieldBloc> get fields => flatFieldBlocs() ?? const [];
+
   Map<int, Iterable<FieldBloc>> _flatFieldBlocsStepped() {
     return _fieldBlocs.map((key, fbs) => MapEntry(key, fbs.values));
   }
@@ -556,7 +561,7 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
   String toString() => _toStringWith();
 
   String _toStringWith([String? extra]) {
-    String _allStepsToJson() {
+    String allStepsToJson() {
       var string = '';
       if (numberOfSteps > 1) {
         _fieldBlocs.forEach((key, value) {
@@ -567,7 +572,7 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
       return string;
     }
 
-    String _allStepsIsValid() {
+    String allStepsIsValid() {
       var string = '';
       if (numberOfSteps > 1) {
         _isValidByStep.forEach((key, value) {
@@ -578,24 +583,24 @@ abstract class FormBlocState<SuccessResponse, FailureResponse>
       return string;
     }
 
-    var _toString = '$runtimeType {';
+    var buffer = '$runtimeType {';
 
-    _toString += '\n  isEditing: $isEditing';
+    buffer += '\n  isEditing: $isEditing';
     if (extra != null) {
-      _toString += extra;
+      buffer += extra;
     }
-    _toString += ',\n  canSubmit: $canSubmit';
+    buffer += ',\n  canSubmit: $canSubmit';
 
-    _toString += ',\n  currentStep: $currentStep';
-    _toString += ',\n  numberOfSteps: $numberOfSteps';
+    buffer += ',\n  currentStep: $currentStep';
+    buffer += ',\n  numberOfSteps: $numberOfSteps';
 
-    _toString += _allStepsIsValid();
-    _toString += ',\n  isValid(): ${isValid()}';
-    _toString += _allStepsToJson();
-    _toString += ',\n  toJson(): ${toJson()}';
-    _toString += ',\n  fieldBlocs: $_fieldBlocs';
-    _toString += '\n}';
-    return _toString;
+    buffer += allStepsIsValid();
+    buffer += ',\n  isValid(): ${isValid()}';
+    buffer += allStepsToJson();
+    buffer += ',\n  toJson(): ${toJson()}';
+    buffer += ',\n  fieldBlocs: $_fieldBlocs';
+    buffer += '\n}';
+    return buffer;
   }
 }
 

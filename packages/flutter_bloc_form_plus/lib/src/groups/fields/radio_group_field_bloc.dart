@@ -85,7 +85,7 @@ class RadioGroupFieldBlocBuilder<Value> extends StatelessWidget {
       child: CanShowFieldBlocBuilder(
         fieldBloc: selectFieldBloc,
         animate: animateWhenCanShow,
-        builder: (_, __) {
+        builder: (_, _) {
           return BlocBuilder<SelectFieldBloc<Value, dynamic>,
               SelectFieldBlocState<Value, dynamic>>(
             bloc: selectFieldBloc,
@@ -113,10 +113,7 @@ class RadioGroupFieldBlocBuilder<Value> extends StatelessWidget {
                       scale: radioSize / 24.0,
                       child: Radio<Value>(
                         value: item,
-                        groupValue: state.value,
-                        onChanged: isEnabled
-                            ? (v) => selectFieldBloc.changeValue(v)
-                            : null,
+                        toggleable: fieldTheme.canDeselect,
                       ),
                     );
 
@@ -177,9 +174,14 @@ class RadioGroupFieldBlocBuilder<Value> extends StatelessWidget {
 
                     return InkWell(
                       onTap: isEnabled
-                          ? () => selectFieldBloc.changeValue(
-                        state.value == item ? null : item,
-                      )
+                          ? () {
+                              if (fieldTheme.canDeselect &&
+                                  state.value == item) {
+                                selectFieldBloc.changeValue(null);
+                              } else {
+                                selectFieldBloc.changeValue(item);
+                              }
+                            }
                           : null,
                       child: content,
                     );

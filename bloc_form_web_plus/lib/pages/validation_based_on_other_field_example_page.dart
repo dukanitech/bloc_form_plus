@@ -14,6 +14,9 @@ class ValidationBasedOnOtherFieldExamplePage extends StatelessWidget {
           codePath: 'lib/examples/validation_based_on_other_field.dart'),
       tutorial: TutorialScreen(
         children: <Widget>[
+          ...TutorialPackageSetup.dependencySteps(
+            headerPrefix: '# Setup (bloc_form 0.3.0)',
+          ),
           const TutorialText('''
 # 1. Create the field blocs   
 '''),

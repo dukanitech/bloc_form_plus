@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - "packages/bloc_form_plus/**"
-      - ".github/workflows/bloc_form_plus.yaml"
+      - ".github/workflows/bloc_form_plus.yml"
 
   pull_request:
     paths:
       - "packages/bloc_form_plus/**"
-      - ".github/workflows/bloc_form_plus.yaml"
+      - ".github/workflows/bloc_form_plus.yml"
 
 jobs:
   build:
@@ -26,11 +26,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.4'
+          flutter-version: '3.44.2'
           channel: 'stable'
 
       - name: Install Dependencies
-        run: flutter pub get
+        run: dart run melos bootstrap
+        working-directory: ../..
 
       - name: Format
         run: dart format --set-exit-if-changed .

@@ -69,6 +69,13 @@ mixin FieldBloc<State extends FieldBlocStateBase> on BlocBase<State> {
   /// Remove the [formBloc] to the fieldBloc
   /// {@endtemplate}
   void removeFormBloc(FormBloc<dynamic, dynamic> formBloc);
+
+  /// {@template bloc_form_plus.FieldBloc.clearError}
+  /// Clears the validation error without changing the field value.
+  ///
+  /// Similar to Flutter's `FormFieldState.clearError`.
+  /// {@endtemplate}
+  void clearError();
 }
 
 /// The base class with the common behavior
@@ -161,22 +168,22 @@ abstract class SingleFieldBloc<
     required Stream<R> Function(State previous, State current) onData,
     void Function(State previous, State current, R result)? onFinish,
   }) {
-    final _onStart = onStart ?? (_, __) {};
+    final onStartCallback = onStart ?? (_, _) {};
 
-    final _onFinish = onFinish ?? (State p, State c, R r) {};
+    final onFinishCallback = onFinish ?? (State p, State c, R r) {};
 
     return stream
         .startWith(state)
         .distinct((p, c) => p.value == c.value)
         .pairwise()
-        .doOnData((states) => _onStart(states.first, states.last))
+        .doOnData((states) => onStartCallback(states.first, states.last))
         .debounceTime(debounceTime)
         .switchMap<List<dynamic>>(
           (states) => onData(states.first, states.last)
               .map((r) => <dynamic>[states.first, states.last, r]),
         )
         .listen((list) =>
-            _onFinish(list[0] as State, list[1] as State, list[2] as R));
+            onFinishCallback(list[0] as State, list[1] as State, list[2] as R));
   }
 
   // ===========================================================================
@@ -241,6 +248,17 @@ abstract class SingleFieldBloc<
   ///
   /// {@macro bloc_form_plus.field_bloc.update_value}
   void clear() => updateInitialValue(state.initialValue);
+
+  /// {@macro bloc_form_plus.FieldBloc.clearError}
+  @override
+  void clearError() {
+    if (!state.hasError) return;
+
+    emit(state.copyWith(
+      error: Param(null),
+      isValidated: false,
+    ) as State);
+  }
 
   /// Add a [suggestion] to [selectedSuggestion].
   void selectSuggestion(Suggestion suggestion) {
@@ -691,6 +709,14 @@ class MultiFieldBloc<ExtraData, TState extends MultiFieldBlocState<ExtraData>>
   /// if one of them returns `false` it fails
   @override
   Future<bool> validate() => validateAll(state.flatFieldBlocs);
+
+  /// {@macro bloc_form_plus.FieldBloc.clearError}
+  @override
+  void clearError() {
+    for (final fieldBloc in state.flatFieldBlocs) {
+      fieldBloc.clearError();
+    }
+  }
 
   /// {@macro bloc_form_plus.FieldBloc.updateExtraData}
   /// See [SingleFieldBloc.updateExtraData]

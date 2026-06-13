@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
 import 'package:flutter_bloc_form_plus/src/flutter_typeahead.dart';
 import 'package:flutter_bloc_form_plus/src/theme/field_theme_resolver.dart';
+import 'package:flutter_bloc_form_plus/src/utils/accessibility.dart';
 import 'package:flutter_bloc_form_plus/src/utils/utils.dart';
 
 export 'package:flutter/services.dart'
@@ -22,6 +23,15 @@ enum SuffixButton {
 }
 
 /// A material design text field that can show suggestions.
+///
+/// **Accessibility**
+/// - Set [autofillHints] (e.g. `AutofillHints.email`) so web and mobile
+///   browsers can autofill fields correctly.
+/// - Validation messages from [errorBuilder] are applied to [decoration]
+///   as `errorText`, which Flutter exposes to screen readers (including
+///   `aria-description` on web).
+/// - Use [sensitiveContent] on password fields to hide obscured input from
+///   Android screen capture.
 class TextFieldBlocBuilder extends StatefulWidget {
   /// Creates a Material Design text field
   ///
@@ -137,6 +147,7 @@ class TextFieldBlocBuilder extends StatefulWidget {
     this.obscureTextFalseIcon,
     this.clearTextIcon,
     this.autofillHints,
+    this.sensitiveContent,
     this.asyncValidatingIcon = const SizedBox(
       height: 24,
       width: 24,
@@ -689,6 +700,11 @@ class TextFieldBlocBuilder extends StatefulWidget {
   final Widget asyncValidatingIcon;
   final Iterable<String>? autofillHints;
 
+  /// When `true`, wraps the field in [SensitiveContent] while [obscureText]
+  /// is active. When `null`, enabled automatically for obscured password
+  /// fields ([SuffixButton.obscureText] or [obscureText]).
+  final bool? sensitiveContent;
+
   TextFieldTheme themeStyleOf(BuildContext context) {
     final theme = Theme.of(context);
     final formTheme = FormTheme.of(context);
@@ -799,6 +815,14 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
     setState(() => _obscureText = value);
   }
 
+  bool get _shouldUseSensitiveContent {
+    if (widget.sensitiveContent == false) return false;
+    if (!_obscureText) return false;
+    if (widget.sensitiveContent == true) return true;
+    return widget.suffixButton == SuffixButton.obscureText ||
+        widget.obscureText == true;
+  }
+
   @override
   Widget build(BuildContext context) {
     final fieldTheme = widget.themeStyleOf(context);
@@ -807,7 +831,7 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
       singleFieldBloc: widget.textFieldBloc,
       animateWhenCanShow: widget.animateWhenCanShow,
       focusOnValidationFailed: widget.focusOnValidationFailed,
-      builder: (_, __) {
+      builder: (_, _) {
         return BlocBuilder<TextFieldBloc, TextFieldBlocState>(
           bloc: widget.textFieldBloc,
           builder: (context, state) {
@@ -823,10 +847,13 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
             }
             return DefaultFieldBlocBuilderPadding(
               padding: widget.padding,
-              child: _buildTextField(
-                state: state,
-                isEnabled: isEnabled,
-                fieldTheme: fieldTheme,
+              child: wrapSensitiveContent(
+                enabled: _shouldUseSensitiveContent,
+                child: _buildTextField(
+                  state: state,
+                  isEnabled: isEnabled,
+                  fieldTheme: fieldTheme,
+                ),
               ),
             );
           },
@@ -859,11 +886,18 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
           );
           break;
         case SuffixButton.asyncValidating:
+          final validatingOpacityDuration =
+              shouldAnimateFieldTransitions(context, widget.animateWhenCanShow)
+                  ? const Duration(milliseconds: 300)
+                  : Duration.zero;
           decoration = decoration.copyWith(
             suffixIcon: AnimatedOpacity(
-              duration: const Duration(milliseconds: 300),
+              duration: validatingOpacityDuration,
               opacity: state.canShowIsValidating ? 1.0 : 0.0,
-              child: widget.asyncValidatingIcon,
+              child: semanticProgressIndicator(
+                label: 'Validating',
+                child: widget.asyncValidatingIcon,
+              ),
             ),
           );
       }
@@ -948,7 +982,7 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
         cursorRadius: widget.cursorRadius,
         cursorColor: widget.cursorColor,
         keyboardAppearance: widget.keyboardAppearance,
-        scrollPadding: widget.scrollPadding,
+        scrollPadding: effectiveScrollPadding(context, widget.scrollPadding),
         focusNode: widget.focusNode,
         buildCounter: widget.buildCounter,
         dragStartBehavior: widget.dragStartBehavior,
@@ -978,7 +1012,10 @@ class _TextFieldBlocBuilderState extends State<TextFieldBlocBuilder> {
                 height: 36,
                 width: 36,
                 padding: const EdgeInsets.all(4.0),
-                child: const CircularProgressIndicator(strokeWidth: 3),
+                child: semanticProgressIndicator(
+                  label: 'Loading suggestions',
+                  child: const CircularProgressIndicator(strokeWidth: 3),
+                ),
               ),
             );
           },

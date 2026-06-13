@@ -462,6 +462,30 @@ void main() {
       verify(() => fieldBloc.clear());
     });
 
+    test('success clearErrors.', () async {
+      final formBloc = _FormBlocImpl();
+      final fieldBloc = _MockInputFieldBloc();
+      final initialState = createInputState<dynamic, dynamic>(
+        value: 'value',
+        error: 'error',
+        isDirty: true,
+        suggestions: null,
+        isValidated: true,
+        isValidating: false,
+        name: '',
+      );
+      whenListen(
+        fieldBloc,
+        Stream<InputFieldBlocState<dynamic, dynamic>>.empty(),
+        initialState: initialState,
+      );
+
+      formBloc.addFieldBloc(fieldBloc: fieldBloc);
+      formBloc.clearErrors();
+
+      verify(() => fieldBloc.clearError());
+    });
+
     test('success reload.', () async {
       final formBloc = _FormBlocImpl();
 

@@ -89,6 +89,11 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
       ),
       _buildSubHeader(),
       _buildDrawerItem(
+        title: 'What\'s New 0.3.0',
+        routeName: RouteNames.whatsNewExample,
+        iconData: Icons.new_releases,
+      ),
+      _buildDrawerItem(
         title: 'Simple',
         routeName: RouteNames.simpleExample,
       ),
@@ -139,12 +144,14 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
   Widget _buildDrawerItem({
     required String title,
     required String routeName,
+    IconData? iconData,
   }) {
     return DrawerItem(
       title: title,
       routeName: routeName,
       selectedRoute: _selectedRoute,
       permanentlyDisplay: widget.permanentlyDisplay,
+      iconData: iconData,
     );
   }
 
@@ -179,8 +186,8 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                padding: const EdgeInsets.only(right: 55),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    Text(
+                  children: <Widget>[
+                    const Text(
                       'bloc_form',
                       style: TextStyle(
                         fontSize: 48,
@@ -189,6 +196,14 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ),
                     ),
                     Text(
+                      'v0.3.0 · Flutter 3.44',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white.withAlpha(200),
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    const Text(
                       'by dukanitech',
                       style: TextStyle(
                         fontSize: 18,

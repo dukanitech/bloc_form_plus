@@ -4,6 +4,9 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:bloc_form_plus/bloc_form.dart';
 
 export 'src/checkbox_field_bloc_builder.dart';
+export 'src/cupertino/adaptive_text_field_bloc_builder.dart';
+export 'src/cupertino/cupertino_switch_field_bloc_builder.dart';
+export 'src/cupertino/cupertino_text_field_bloc_builder.dart';
 export 'src/chip/chip_field_item_builder.dart';
 export 'src/chip/choice_chip_field_bloc_builder.dart';
 export 'src/chip/filter_chip_field_bloc_builder.dart';

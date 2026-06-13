@@ -8,6 +8,27 @@
 
 Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface.
 
+## Development
+
+This monorepo uses [FVM](https://fvm.app/) (Flutter **3.44.2**) and [Melos](https://melos.invertase.dev/).
+
+From the repo root (`bloc_form/`):
+
+```bash
+fvm dart run melos bootstrap
+```
+
+Use **`fvm dart run melos …`** instead of a globally installed `melos` command. A global Melos snapshot compiled with a different Dart SDK causes:
+
+`Invalid kernel binary format version (expected …, found …)`.
+
+If you previously activated Melos globally, re-sync it with FVM’s Dart or remove it:
+
+```bash
+fvm dart pub global activate melos
+# or: dart pub global deactivate melos
+```
+
 # [🔥👉 Documentation and Tutorials 👈🔥](https://dukanitech.github.io/bloc_form_plus/)
 
 

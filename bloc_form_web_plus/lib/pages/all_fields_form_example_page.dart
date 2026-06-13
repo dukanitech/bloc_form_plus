@@ -7,10 +7,26 @@ class AllFieldsExamplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ExampleScaffold(
+    return ExampleScaffold(
       title: 'Built-in Widgets',
-      demo: DeviceScreen(app: AllFieldsForm()),
-      code: CodeScreen(codePath: 'lib/examples/all_fields_form.dart'),
+      demo: const DeviceScreen(app: AllFieldsForm()),
+      code: const CodeScreen(codePath: 'lib/examples/all_fields_form.dart'),
+      tutorial: TutorialScreen(
+        children: [
+          ...TutorialPackageSetup.dependencySteps(
+            headerPrefix: '# Setup (bloc_form 0.3.0)',
+          ),
+          TutorialText(TutorialPackageSetup.builders030),
+          const TutorialText('''
+This example lists the main **flutter_bloc_form_plus** builders in one form.
+
+**0.3.0 additions** in this demo:
+* `AdaptiveTextFieldBlocBuilder`
+* `RadioGroupFieldBlocBuilder` (Flutter `RadioGroup` API)
+* TypeAhead via `TextFieldBlocBuilder` + `suggestions` on `TextFieldBloc`
+'''),
+        ],
+      ),
     );
   }
 }

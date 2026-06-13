@@ -163,6 +163,11 @@ abstract class FormBloc<SuccessResponse, FailureResponse>
   /// Call `clear` method for each [FieldBloc] in [FieldBlocs].
   void clear() => _onClearFormBloc();
 
+  /// Clears validation errors on every [FieldBloc] without resetting values.
+  ///
+  /// Similar to Flutter's `Form.clearError`.
+  void clearErrors() => _onClearFormBlocErrors();
+
   /// Call [onLoading] and set the current state to [FormBlocLoading].
   void reload() {
     if (state is! FormBlocLoading) {
@@ -407,6 +412,15 @@ abstract class FormBloc<SuccessResponse, FailureResponse>
 
     for (var fieldBloc in allSingleFieldBlocs) {
       fieldBloc.clear();
+    }
+  }
+
+  void _onClearFormBlocErrors() {
+    final fieldBlocs = state.flatFieldBlocs();
+    if (fieldBlocs == null) return;
+
+    for (final fieldBloc in fieldBlocs) {
+      fieldBloc.clearError();
     }
   }
 

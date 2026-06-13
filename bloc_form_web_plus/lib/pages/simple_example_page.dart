@@ -50,8 +50,9 @@ class SimpleExamplePage extends StatelessWidget {
 
   TutorialStep _step0() {
     return TutorialStep(
-      title: 'Depend on it',
+      title: 'Depend on bloc_form 0.3.0',
       children: [
+        TutorialText(TutorialPackageSetup.packageNote),
         CodeCard.pubspec(),
       ],
     );
@@ -428,18 +429,10 @@ class SuccessScreen extends StatelessWidget {
     return TutorialStep(
       title: 'Connect the Field Blocs with Field Blocs Builders',
       children: [
-        const TutorialText('''
-You can easily connect any field bloc with any widget you want using a `BlocBuilder`, but flutter_bloc_form offers you some widgets.
-* TextFieldBlocBuilder
-* DropdownFieldBlocBuilder
-* RadioButtonGroupFieldBlocBuilder
-* CheckboxFieldBlocBuilder
-* SwitchFieldBlocBuilder
-* CheckboxGroupFieldBlocBuilder
-* DateTimeFieldBlocBuilder
-* TimeFieldBlocBuilder
+        TutorialText('''
+You can connect any field bloc with a `BlocBuilder`, but **flutter_bloc_form_plus** provides ready-made widgets.
 
-To use them you simply have to assign a field bloc.
+${TutorialPackageSetup.builders030}
 '''),
         CodeCard.main(
           nestedPath: _formBlocWidgetBuildName,
@@ -459,6 +452,7 @@ To use them you simply have to assign a field bloc.
                     ),
                     TextFieldBlocBuilder(
                       textFieldBloc: loginFormBloc.password,
+                      sensitiveContent: true,
                       autofillHints: [AutofillHints.password],
                       suffixButton: SuffixButton.obscureText,
                       decoration: InputDecoration(

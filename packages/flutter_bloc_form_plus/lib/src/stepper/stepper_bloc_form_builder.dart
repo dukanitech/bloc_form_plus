@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide Stepper, Step;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_form_plus/src/stepper/stepper.dart';
+import 'package:flutter_bloc_form_plus/src/utils/accessibility.dart';
 import 'package:bloc_form_plus/bloc_form.dart';
 
 /// A material step used in [Stepper]. The step can have a title and subtitle,
@@ -59,6 +60,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
     this.physics,
     this.type = StepperType.vertical,
     this.showTitle = true,
+    this.animateStepTransitions = true,
     this.onStepTapped,
     this.onStepContinue,
     this.onStepCancel,
@@ -87,6 +89,10 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
   /// displayed in-between.
   final StepperType type;
   final bool showTitle;
+
+  /// When `false`, step content transitions are instant. Also respects the
+  /// platform [MediaQuery.disableAnimations] setting.
+  final bool animateStepTransitions;
 
   /// The callback called when a step is tapped, with its index passed as
   /// an argument.
@@ -168,7 +174,7 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
         final formBloc = this.formBloc ?? context.read<T>();
 
         final formBlocSteps = stepsBuilder(formBloc);
-        return Stepper(
+        final stepper = Stepper(
           key: Key('__stepper_bloc_form_${formBlocSteps.length}__'),
           currentStep: state.currentStep,
           onStepCancel: onStepCancel == null
@@ -195,12 +201,22 @@ class StepperFormBlocBuilder<T extends FormBloc> extends StatelessWidget {
           controlsBuilder: controlsBuilder == null
               ? null
               : (context, controlsDetails) => controlsBuilder!(
-                  context,
-                  controlsDetails.onStepContinue,
-                  controlsDetails.onStepCancel,
-                  controlsDetails.stepIndex,
-                  formBloc),
+                    context,
+                    controlsDetails.onStepContinue,
+                    controlsDetails.onStepCancel,
+                    controlsDetails.stepIndex,
+                    formBloc,
+                  ),
         );
+
+        if (!shouldAnimateFieldTransitions(context, animateStepTransitions)) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: stepper,
+          );
+        }
+
+        return stepper;
       },
     );
   }

@@ -14,6 +14,9 @@ class AsyncFieldValidationExamplePage extends StatelessWidget {
           const CodeScreen(codePath: 'lib/examples/async_field_validation_form.dart'),
       tutorial: TutorialScreen(
         children: <Widget>[
+          ...TutorialPackageSetup.dependencySteps(
+            headerPrefix: '# Setup (bloc_form 0.3.0)',
+          ),
           const TutorialText('''
 # 1. Create the field bloc        
 '''),
@@ -121,9 +124,9 @@ class AsyncFieldValidationFormBloc extends FormBloc<String, String> {
           TutorialText.sub('''
 # 4. Show a widget when it is validating asynchronous
 
-If you want to show a circular progress indicator in the `TextFieldBlocBuilder` when it is being asynchronously validated, simply in `suffixButton` property assign `SuffixButton.circularIndicatorWhenIsAsyncValidating`
+If you want to show a circular progress indicator in the `TextFieldBlocBuilder` when it is being asynchronously validated, assign `SuffixButton.circularIndicatorWhenIsAsyncValidating`.
 
-But remember that the state of the field bloc will have the `isValidating` property in case you want to create your own widget.
+In **0.3.0**, the builder also exposes loading state to assistive technologies via semantic labels automatically.
 '''),
           CodeCard.main(
             nestedPath: 'AsyncFieldValidationForm',

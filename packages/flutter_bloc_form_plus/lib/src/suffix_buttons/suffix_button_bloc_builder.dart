@@ -38,10 +38,16 @@ class SuffixButtonBuilderBase extends StatelessWidget {
       fieldBlocState: state,
     );
 
-    return InkWell(
-      borderRadius: const BorderRadius.all(Radius.circular(25.0)),
-      onTap: isEnabled ? onTap : null,
-      child: icon,
+    return IconButton(
+      onPressed: isEnabled ? onTap : null,
+      icon: icon,
+      iconSize: 20,
+      visualDensity: VisualDensity.compact,
+      padding: EdgeInsets.zero,
+      style: IconButton.styleFrom(
+        minimumSize: Size.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
     );
   }
 

@@ -730,6 +730,42 @@ void main() {
       fieldBloc.updateValue(null);
     });
 
+    group('clearError', () {
+      test('clears error without changing value', () async {
+        final fieldBloc = InputFieldBloc<int?, dynamic>(
+          name: 'fieldName',
+          initialValue: 1,
+          validators: [FieldBlocValidators.required],
+        );
+
+        fieldBloc.changeValue(null);
+        await fieldBloc.validate();
+
+        expect(fieldBloc.state.value, isNull);
+        expect(fieldBloc.state.hasError, isTrue);
+
+        fieldBloc.clearError();
+
+        expect(fieldBloc.state.value, isNull);
+        expect(fieldBloc.state.hasError, isFalse);
+        expect(fieldBloc.state.isValid, isFalse);
+
+        fieldBloc.close();
+      });
+
+      test('is no-op when field has no error', () async {
+        final fieldBloc = InputFieldBloc<int?, dynamic>(
+          name: 'fieldName',
+          initialValue: 1,
+        );
+
+        expect(fieldBloc.state.hasError, isFalse);
+        fieldBloc.clearError();
+        expect(fieldBloc.state.hasError, isFalse);
+        fieldBloc.close();
+      });
+    });
+
     group('removeValidators', () {
       test('remove validators and not emit error', () async {
         final fieldBloc = InputFieldBloc<int?, dynamic>(

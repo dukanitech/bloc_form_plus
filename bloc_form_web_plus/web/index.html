@@ -5,36 +5,21 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="bloc_form web demo — Flutter 3.44 compatible.">
 
-  <meta name="description" content="A modern Flutter web application with optimized performance.">
-
-  <!-- Preload critical resources -->
-  <link rel="preload" as="script" href="main.dart.js">
-  <link rel="preload" as="fetch" href="assets/FontManifest.json" crossorigin>
-  <link rel="preload" as="fetch" href="assets/AssetManifest.json" crossorigin>
-
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Bloc Form Web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  <link rel="apple-touch-startup-image" href="icons/Icon-512.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <!-- Theme color for PWA -->
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="theme-color" content="#2A579A">
 
-  <title>Bloc Form Web - Fast & Modern</title>
+  <title>Bloc Form Web</title>
   <link rel="manifest" href="manifest.json">
 
   <style>
-    /* Critical CSS for initial loading */
     body {
       margin: 0;
       padding: 0;
@@ -116,132 +101,20 @@
   </style>
 </head>
 <body>
-<!-- Enhanced loading screen with progress indicator -->
-<div id="loading" class="loading-container">
-  <div class="logo">
-    <span class="logo-icon">📋</span>
-    <span>Bloc Form Web</span>
+  <div id="loading" class="loading-container">
+    <div class="logo">
+      <span class="logo-icon">📋</span>
+      <span>Bloc Form Web</span>
+    </div>
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading application</div>
+    <div class="loading-subtext">Flutter 3.44 web bootstrap</div>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
   </div>
-  <div class="loading-spinner"></div>
-  <div class="loading-text">Loading Application</div>
-  <div class="loading-subtext">Please wait while we prepare your experience</div>
-  <div class="progress-bar">
-    <div id="progress" class="progress"></div>
-  </div>
-</div>
 
-<script>
-  // Enhanced service worker registration with performance monitoring
-  var serviceWorkerVersion = '{{flutter_service_worker_version}}';
-  var scriptLoaded = false;
-  var startTime = performance.now();
-
-  // Update progress bar
-  function updateProgress(percent) {
-    const progressBar = document.getElementById('progress');
-    if (progressBar) {
-      progressBar.style.width = percent + '%';
-    }
-  }
-
-  // Simulate progress for better UX
-  let progress = 0;
-  const progressInterval = setInterval(() => {
-    progress += Math.random() * 5;
-    if (progress < 90) {
-      updateProgress(progress);
-    }
-  }, 300);
-
-  function loadMainDartJs() {
-    if (scriptLoaded) {
-      return;
-    }
-    scriptLoaded = true;
-
-    // Update progress to 95% when loading main script
-    updateProgress(95);
-
-    var scriptTag = document.createElement('script');
-    scriptTag.src = 'main.dart.js';
-    scriptTag.type = 'application/javascript';
-    scriptTag.onload = function() {
-      // Complete progress when script is loaded
-      updateProgress(100);
-
-      // Hide loading screen after a short delay
-      setTimeout(() => {
-        const loadingElement = document.getElementById('loading');
-        if (loadingElement) {
-          loadingElement.classList.add('hide');
-        }
-
-        // Log performance metrics
-        const loadTime = (performance.now() - startTime) / 1000;
-        console.log(`Flutter app loaded in ${loadTime.toFixed(2)} seconds`);
-      }, 500);
-    };
-
-    document.body.appendChild(scriptTag);
-    clearInterval(progressInterval);
-  }
-
-  // Register service worker with enhanced error handling
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-
-      navigator.serviceWorker.register(serviceWorkerUrl)
-        .then((reg) => {
-          function waitForActivation(serviceWorker) {
-            serviceWorker.addEventListener('statechange', () => {
-              if (serviceWorker.state == 'activated') {
-                console.log('Service worker activated');
-                updateProgress(75);
-                loadMainDartJs();
-              }
-            });
-          }
-
-          if (!reg.active && (reg.installing || reg.waiting)) {
-            waitForActivation(reg.installing || reg.waiting);
-          } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-            console.log('New service worker available');
-            reg.update();
-            waitForActivation(reg.installing);
-          } else {
-            console.log('Loading app from service worker');
-            updateProgress(50);
-            loadMainDartJs();
-          }
-        })
-        .catch((error) => {
-          console.warn('Service worker registration failed:', error);
-          // Fallback to loading without service worker
-          loadMainDartJs();
-        });
-
-      // Load app after timeout even if service worker hasn't registered
-      setTimeout(() => {
-        if (!scriptLoaded) {
-          console.log('Loading app without service worker');
-          loadMainDartJs();
-        }
-      }, 4000);
-    });
-  } else {
-    // Service workers not supported
-    loadMainDartJs();
-  }
-
-  // Handle errors gracefully
-  window.addEventListener('error', function(e) {
-    console.error('Global error:', e.error);
-    const loadingText = document.querySelector('.loading-text');
-    if (loadingText) {
-      loadingText.textContent = 'Loading taking longer than expected...';
-    }
-  });
-</script>
+  <!-- Flutter 3.44+ web initialization: https://docs.flutter.dev/platform-integration/web/initialization -->
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

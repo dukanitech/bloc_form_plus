@@ -1,3 +1,34 @@
+# 0.3.0
+
+Flutter **3.44.2** / Dart **3.12** release aligned with `flutter_bloc_form_plus` **0.3.0**.
+
+## Added
+
+* **`FieldBloc.clearError()`** — clears the validation error without changing the field value (mirrors Flutter `FormFieldState.clearError`). Supported on single fields and nested group/list fields.
+* **`FormBloc.clearErrors()`** — clears validation errors on every field without resetting values (mirrors Flutter `Form.clearError`).
+* **`FormBlocState.fields`** — getter alias for `flatFieldBlocs()` (mirrors Flutter `FormState.fields`).
+
+## Changed
+
+* **SDK constraint:** `>=3.8.0 <4.0.0` (Dart 3.12.2 via Flutter 3.44.2).
+* **`bloc`:** upgraded to **^9.2.0**.
+* **`bloc_test`:** upgraded to **^10.0.0**.
+* **`test`:** upgraded to **^1.29.0**.
+* **`meta`:** upgraded to **^1.17.0**.
+* **`equatable`:** upgraded to **^2.0.8**.
+* **`collection`:** upgraded to **^1.19.1**.
+* **`uuid`:** upgraded to **^4.5.2**.
+* **`lints`:** upgraded to **^6.0.0**.
+* **`onValueChanges`:** renamed internal callback locals to satisfy `no_leading_underscores_for_local_identifiers`.
+* **`FieldBlocState.toString`:** refactored string building to satisfy Dart 3.12 analyzer.
+* **`FormBlocState._toStringWith`:** refactored nested helpers and buffer naming for analyzer compliance.
+
+## Tests
+
+* Added tests for **`clearError()`** on `InputFieldBloc`.
+* Added tests for **`FormBloc.clearErrors()`**.
+* Added tests for **`FormBlocState.fields`**.
+
 # 0.2.3
  * **Minor fix of changelog arrangement**
 
@@ -68,4 +99,3 @@ Fixed common issue with BuildContext usage across async gaps, avoiding errors ca
 # 0.1.0
 
 * Initial Version of the library.
-

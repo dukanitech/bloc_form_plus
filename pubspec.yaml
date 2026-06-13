@@ -1,12 +1,29 @@
 name: root_workspace
-environment:
-   sdk: '>=3.8.0 <4.0.0'
+publish_to: none
 
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+workspace:
+  - bloc_form_web_plus
+  - packages/bloc_form_plus
+  - packages/flutter_bloc_form_plus
+  - packages/bloc_form_plus/example
+  - packages/flutter_bloc_form_plus/example
 
 dev_dependencies:
   melos: ^7.1.1
 
-scripts:
-  analyze:
-    exec: dart analyze .
-
+melos:
+  sdkPath: .fvm/flutter_sdk
+  scripts:
+    analyze:
+      run: |
+        dirs=""
+        [ -d lib ] && dirs="lib"
+        [ -d test ] && dirs="$dirs test"
+        [ -n "$dirs" ] && dart analyze $dirs || dart analyze .
+      exec:
+        concurrency: 1
+    analyze:lib:
+      exec: dart analyze lib --fatal-infos

@@ -1,3 +1,70 @@
+# 0.3.0
+
+Flutter **3.44.2** / Dart **3.12** release. Requires **`bloc_form_plus` ^0.3.0**.
+
+## Added
+
+### Cupertino & adaptive builders
+* **`CupertinoTextFieldBlocBuilder`** — Cupertino-styled text field integrated with `TextFieldBloc`.
+* **`CupertinoSwitchFieldBlocBuilder`** — Cupertino switch integrated with `BooleanFieldBloc`.
+* **`AdaptiveTextFieldBlocBuilder`** — picks Cupertino or Material text field based on platform (`prefersCupertinoFields`).
+* **`prefersCupertinoFields(BuildContext)`** — helper in `functions.dart` for platform-aware field selection.
+
+### Accessibility utilities (`lib/src/utils/accessibility.dart`)
+* **`shouldAnimateFieldTransitions()`** — respects `MediaQuery.disableAnimations` (reduce motion).
+* **`effectiveScrollPadding()`** — larger default scroll padding on web to keep fields visible above mobile browser keyboards.
+* **`wrapSensitiveContent()`** — wraps obscured fields with Flutter `SensitiveContent` on supported platforms (Android screen capture).
+* **`semanticProgressIndicator()`** — exposes async validation / loading indicators to assistive technologies.
+
+### Field builder enhancements
+* **`TextFieldBlocBuilder.sensitiveContent`** — opt-in/out `SensitiveContent` for password and sensitive fields.
+* **`StepperFormBlocBuilder.animateStepTransitions`** — controls step animations; disabled automatically when reduce motion is on.
+
+## Changed
+
+### Flutter 3.44 / API compatibility
+* **`RadioGroupFieldBlocBuilder`** — migrated to Flutter `RadioGroup` API; inner `Radio` widgets no longer use deprecated `groupValue` / `onChanged`.
+* **`RadioButtonGroupFieldBlocBuilder`** — wrapped in `RadioGroup`; same deprecated API cleanup.
+* **`flutter_typeahead.dart`** — replaced deprecated `SizeTransition.axisAlignment` with `alignment: Alignment.topLeft`.
+* Fixed **`unnecessary_underscores`** lints across builders (`checkbox_field_bloc_builder`, `filter_chip_field_bloc_builder`, `date_time_field_bloc_builder_base`, `checkbox_group_field_bloc_builder`, `group_view`, `switch_field_bloc_builder`, and others).
+
+### Accessibility & UX
+* **`TextFieldBlocBuilder`** — uses `effectiveScrollPadding` on web; wraps obscured text with `SensitiveContent`; semantic labels on async validation progress.
+* **`CanShowFieldBlocBuilder`** — field show/hide transitions respect reduce motion via `shouldAnimateFieldTransitions`.
+* **`StepperFormBlocBuilder`** — step transitions respect reduce motion.
+* **`TypeAheadField`** — suggestion overlay animations respect reduce motion.
+
+### Typeahead / mobile web keyboard
+* **Removed `flutter_keyboard_visibility` dependency** — keyboard visibility on mobile web uses `View.of(context).viewInsets` in `didChangeMetrics` instead.
+* Improved keyboard inset handling for suggestion overlay positioning.
+
+### Dependencies
+* **SDK constraint:** `>=3.8.0 <4.0.0`.
+* **`bloc_form_plus`:** **^0.3.0** (includes `clearError`, `clearErrors`, `fields`).
+* **`flutter_bloc`:** **^9.1.1**.
+* **`equatable`:** **^2.0.8**.
+* **`collection`:** **^1.19.1**.
+* **`intl`:** **^0.20.2**.
+* **`flutter_lints`:** **^6.0.0**.
+* **Removed:** `flutter_keyboard_visibility`.
+
+## Removed
+
+* **`radio_group_field_bloc_v2.dart`** — duplicate; functionality consolidated into `radio_group_field_bloc.dart`.
+* **`radio_group_field_bloc_v3.dart`** — duplicate; functionality consolidated into `radio_group_field_bloc.dart`.
+
+## Demo / example apps
+
+* **Android edge-to-edge** enabled in `flutter_bloc_form_plus/example` via `WindowCompat.setDecorFitsSystemWindows(window, false)` in `MainActivity.kt` (Flutter 3.44+ recommendation).
+
+## Monorepo & tooling (repository)
+
+* **FVM** pinned to Flutter **3.44.2** (`.fvmrc`).
+* **Melos 7** workspace config moved to root `pubspec.yaml`; legacy `melos.yaml` removed.
+* **Pub workspaces** with `resolution: workspace` across all packages.
+* **CI** (`.github/workflows/bloc_form_plus.yml`, `bloc_form_plus_web.yml`) updated to Flutter **3.44.2** and `melos bootstrap`.
+* Removed legacy **`pubspec_overrides.yaml`** files.
+
 # 0.2.3
 
 ### Added
@@ -103,5 +170,4 @@ Fixed common issue with BuildContext usage across async gaps, avoiding errors ca
 # 0.1.0
 
 Initial Version of the library.
-
 

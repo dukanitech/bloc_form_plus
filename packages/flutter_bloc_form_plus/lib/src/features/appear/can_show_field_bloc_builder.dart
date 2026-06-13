@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_form_plus/src/utils/accessibility.dart';
 import 'package:bloc_form_plus/bloc_form.dart';
 
 class CanShowFieldBlocBuilder extends StatefulWidget {
@@ -84,7 +85,9 @@ class _CanShowFieldBlocBuilderState extends State<CanShowFieldBlocBuilder>
   void _changeVisibility(bool canShow) {
     if (!_showOnFirstFrame) return;
 
-    if (widget.animate) {
+    final animate = shouldAnimateFieldTransitions(context, widget.animate);
+
+    if (animate) {
       _updateAnimation(canShow).whenComplete(() => _updateCanShow(canShow));
     } else {
       _updateCanShow(canShow);
@@ -108,6 +111,7 @@ class _CanShowFieldBlocBuilderState extends State<CanShowFieldBlocBuilder>
 
   @override
   Widget build(BuildContext context) {
+    final animate = shouldAnimateFieldTransitions(context, widget.animate);
     Widget child;
 
     if (_showOnFirstFrame) {
@@ -116,13 +120,10 @@ class _CanShowFieldBlocBuilderState extends State<CanShowFieldBlocBuilder>
       child = const SizedBox.shrink();
     }
 
-    if (widget.animate) {
+    if (animate) {
       child = FadeTransition(
         opacity: _controller,
-        child: SizeTransition(
-          sizeFactor: _controller,
-          child: child,
-        ),
+        child: SizeTransition(sizeFactor: _controller, child: child),
       );
     }
 

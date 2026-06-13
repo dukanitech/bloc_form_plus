@@ -104,6 +104,12 @@ class SubmissionErrorToFieldForm extends StatelessWidget {
                           padding: EdgeInsets.all(8.0),
                           child: Text('"dev" will add a cached error'),
                         ),
+                        OutlinedButton.icon(
+                          onPressed: formBloc.clearErrors,
+                          icon: const Icon(Icons.clear_all),
+                          label: const Text('CLEAR ERRORS'),
+                        ),
+                        const SizedBox(height: 8),
                         ElevatedButton(
                           onPressed: formBloc.submit,
                           child: const Text('SUBMIT'),

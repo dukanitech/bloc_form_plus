@@ -13,6 +13,9 @@ class WizardExamplePage extends StatelessWidget {
       code: const CodeScreen(codePath: 'lib/examples/wizard_form.dart'),
       tutorial: TutorialScreen(
         children: <Widget>[
+          ...TutorialPackageSetup.dependencySteps(
+            headerPrefix: '# Setup (bloc_form 0.3.0)',
+          ),
           const TutorialText('''
 # 1. Create the field blocs
 '''),
@@ -129,13 +132,16 @@ In our case, only when the last step is complete will we navigate to the success
 ''',
           ),
           TutorialText.sub('''
-Then you can use any widget easily using a `BlocBuilder` with the `FormBloc`, but flutter_bloc_form has a built-in stepper widget.
+Then you can use any widget with a `BlocBuilder`, but **flutter_bloc_form_plus** includes **StepperFormBlocBuilder** (respects reduce motion in 0.3.0).
+
+Use **`sensitiveContent: true`** on password fields and **`animateStepTransitions`** on the stepper when needed.
 '''),
           CodeCard.main(
             nestedPath: 'WizardForm > build',
             code: '''
                   child: StepperFormBlocBuilder<WizardFormBloc>(
                     type: StepperType.horizontal,
+                    animateStepTransitions: true,
                     stepsBuilder: (formBloc) {
                       return [
                         _accountStep(formBloc),

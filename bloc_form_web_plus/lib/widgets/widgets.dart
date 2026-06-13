@@ -1,3 +1,4 @@
+export 'tutorial_package_setup.dart';
 export 'code_screen.dart';
 export 'device_screen.dart';
 export 'tutorial_screen.dart';

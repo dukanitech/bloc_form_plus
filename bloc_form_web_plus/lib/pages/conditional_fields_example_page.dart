@@ -13,6 +13,9 @@ class ConditionalFieldsExamplePage extends StatelessWidget {
       code: const CodeScreen(codePath: 'lib/examples/conditional_fields_form.dart'),
       tutorial: TutorialScreen(
         children: <Widget>[
+          ...TutorialPackageSetup.dependencySteps(
+            headerPrefix: '# Setup (bloc_form 0.3.0)',
+          ),
           const TutorialText('''
 # 1. Create the field blocs
 

@@ -14,6 +14,23 @@ void main() {
       expect(state1, state3);
     });
 
+    test('fields returns all field blocs', () {
+      final fieldBloc = InputFieldBloc<int?, dynamic>(
+        name: 'name',
+        initialValue: 1,
+      );
+      final state = FormBlocLoaded<String, String>(
+        fieldBlocs: {
+          0: {'name': fieldBloc},
+        },
+      );
+
+      expect(state.fields, [fieldBloc]);
+      expect(state.fields, state.flatFieldBlocs());
+
+      fieldBloc.close();
+    });
+
     test('to methods', () {
       final loadingState = FormBlocLoading<String, String>(
           isEditing: true, isValidByStep: {}, progress: 0.0);

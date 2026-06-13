@@ -32,6 +32,11 @@ bool fieldBlocIsEnabled({
       : false;
 }
 
+bool prefersCupertinoFields(BuildContext context) {
+  if (kIsWeb) return false;
+  return Theme.of(context).platform == TargetPlatform.iOS;
+}
+
 Widget widgetBasedOnPlatform({
   required Widget mobile,
   required Widget other,

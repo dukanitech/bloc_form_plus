@@ -200,7 +200,8 @@ class _WizardFormState extends State<WizardForm> {
           ),
           TextFieldBlocBuilder(
             textFieldBloc: wizardFormBloc.password,
-            keyboardType: TextInputType.emailAddress,
+            keyboardType: TextInputType.visiblePassword,
+            sensitiveContent: true,
             suffixButton: SuffixButton.obscureText,
             decoration: const InputDecoration(
               labelText: 'Password',

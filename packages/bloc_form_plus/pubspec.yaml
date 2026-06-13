@@ -1,6 +1,7 @@
 name: bloc_form_plus
 description: 'Easy Form State Management using BLoC pattern. Separate the Form State and Business Logic from the User Interface. Async Validation, Progress, Dynamic fields, and more.'
-version: 0.2.3
+version: 0.3.0
+resolution: workspace
 homepage: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form_plus'
 repository: 'https://github.com/dukanitech/bloc_form/tree/master/packages/bloc_form_plus'
 issue_tracker: 'https://github.com/dukanitech/bloc_form/issues'
@@ -9,15 +10,15 @@ environment:
   sdk: '>=3.8.0 <4.0.0'
 
 dependencies:
-  meta: ^1.16.0
-  bloc: ^9.0.1
+  meta: ^1.17.0
+  bloc: ^9.2.0
   rxdart: ^0.28.0
-  equatable: ^2.0.7
+  equatable: ^2.0.8
   collection: ^1.19.1
-  uuid: ^4.5.1
+  uuid: ^4.5.2
 
 dev_dependencies:
-  test: ^1.26.3
+  test: ^1.29.0
   mocktail: ^1.0.4
   bloc_test: ^10.0.0
   fire_line_diff: ^1.5.5
