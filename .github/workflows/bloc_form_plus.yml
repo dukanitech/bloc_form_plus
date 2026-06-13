@@ -31,7 +31,6 @@ jobs:
 
       - name: Install Dependencies
         run: dart run melos bootstrap
-        working-directory: ../..
 
       - name: Format
         run: dart format --set-exit-if-changed .

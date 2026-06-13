@@ -33,7 +33,6 @@ jobs:
 
       - name: Install dependencies
         run: dart run melos bootstrap
-        working-directory: ..
 
       - name: Build Flutter web
         run: flutter build web --release --pwa-strategy=offline-first --tree-shake-icons --base-href /bloc_form_plus/
