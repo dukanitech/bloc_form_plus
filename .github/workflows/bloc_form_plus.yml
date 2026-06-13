@@ -30,7 +30,7 @@ jobs:
           channel: 'stable'
 
       - name: Install Dependencies
-        run: dart run melos bootstrap
+        run: flutter pub get
 
       - name: Format
         run: dart format --set-exit-if-changed .
