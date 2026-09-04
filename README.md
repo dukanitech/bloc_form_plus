@@ -18,11 +18,9 @@ From the repo root (`bloc_form/`):
 fvm dart run melos bootstrap
 ```
 
-Use **`fvm dart run melos …`** instead of a globally installed `melos` command. A global Melos snapshot compiled with a different Dart SDK causes:
+Use **`fvm dart run melos …`** (not bare `melos`) so Melos runs with the same Dart as Flutter **3.44.2**. CI uses `flutter pub get` at the repo root instead of Melos because `.fvm/flutter_sdk` is not checked in.
 
-`Invalid kernel binary format version (expected …, found …)`.
-
-If you previously activated Melos globally, re-sync it with FVM’s Dart or remove it:
+If you previously activated Melos globally, re-sync or remove it:
 
 ```bash
 fvm dart pub global activate melos

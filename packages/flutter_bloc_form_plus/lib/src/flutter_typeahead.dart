@@ -1154,7 +1154,6 @@ class _SuggestionsListState<T> extends State<_SuggestionsList<T>>
         ? widget.transitionBuilder!(context, child, this._animationController)
         : shouldAnimateFieldTransitions(context, true)
         ? SizeTransition(
-            alignment: Alignment.topLeft,
             sizeFactor: CurvedAnimation(
               parent: this._animationController!,
               curve: Curves.fastOutSlowIn,

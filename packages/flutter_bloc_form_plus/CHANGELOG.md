@@ -1,3 +1,9 @@
+# 0.3.1
+
+## Fixed
+
+* **`flutter_typeahead.dart`** — `SizeTransition` no longer passes `alignment:` (not available on Flutter **3.41**) or deprecated `axisAlignment` (Flutter **3.44**). Suggestion overlay animation stays compatible across both SDKs.
+
 # 0.3.0
 
 Flutter **3.44.2** / Dart **3.12** release. Requires **`bloc_form_plus` ^0.3.0**.

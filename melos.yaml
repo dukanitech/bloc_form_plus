@@ -1,0 +1,11 @@
+name: form_bloc_melos
+
+packages:
+  - bloc_form_web_plus
+  - packages/**
+
+sdkPath: .fvm/flutter_sdk
+
+scripts:
+  analyze:
+    exec: dart analyze .
