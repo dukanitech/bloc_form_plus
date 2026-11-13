@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
@@ -132,7 +132,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc_form_plus: ^0.3.0${extraDependencies == null || extraDependencies.isEmpty ? '' : '\n$extraDependencies'}
+  flutter_bloc_form_plus: ^0.3.2${extraDependencies == null || extraDependencies.isEmpty ? '' : '\n$extraDependencies'}
 ''',
         fileName: 'pubspec.yaml',
         showCopyButton: true,

@@ -1,3 +1,18 @@
+# 0.3.2
+
+Compatibility release for **Flutter 3.50** / **Dart 3.12** and **Equatable 3**. Requires **`bloc_form_plus` ^0.3.2**.
+
+## Changed
+
+* **`bloc_form_plus`:** upgraded to **^0.3.2**.
+* **`equatable`:** upgraded to **^3.0.0**.
+* Theme / field theme classes continue to use `extends Equatable` (compatible with Equatable 3 `abstract mixin class`).
+
+## Notes
+
+* Apps that also depend on `equatable` directly should use **`equatable: ^3.0.0`**.
+* Publish **after** `bloc_form_plus` **0.3.2** is live on pub.dev.
+
 # 0.3.1
 
 ## Fixed

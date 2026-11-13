@@ -10,7 +10,7 @@ Easy Form State Management using BLoC pattern. Separate the Form State and Busin
 
 ## Development
 
-This monorepo uses [FVM](https://fvm.app/) (Flutter **3.44.2**) and [Melos](https://melos.invertase.dev/).
+This monorepo uses [FVM](https://fvm.app/) (Flutter **3.50.0**) and [Melos](https://melos.invertase.dev/). Packages are versioned **0.3.2**.
 
 From the repo root (`bloc_form/`):
 
@@ -18,7 +18,7 @@ From the repo root (`bloc_form/`):
 fvm dart run melos bootstrap
 ```
 
-Use **`fvm dart run melos …`** (not bare `melos`) so Melos runs with the same Dart as Flutter **3.44.2**. CI uses `flutter pub get` at the repo root instead of Melos because `.fvm/flutter_sdk` is not checked in.
+Use **`fvm dart run melos …`** (not bare `melos`) so Melos runs with the same Dart as Flutter **3.50.0**. CI uses `flutter pub get` at the repo root instead of Melos because `.fvm/flutter_sdk` is not checked in.
 
 If you previously activated Melos globally, re-sync or remove it:
 

@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/constants/style.dart';
 import 'package:bloc_form_web_plus/routes.dart';
 import 'package:bloc_form_web_plus/widgets/app_scaffold.dart';
@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                     'Separate the form state and Business Logic from the User Interface.'),
                 const SizedBox(height: 12),
                 Text(
-                  'v0.3.0 · Flutter 3.44.2',
+                  'v0.3.2 · Flutter 3.50.0',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                       child: const Text(
-                        'WHAT\'S NEW 0.3.0',
+                        'WHAT\'S NEW 0.3.2',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,

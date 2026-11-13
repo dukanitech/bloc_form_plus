@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 import 'package:bloc_form_web_plus/examples/wizard_form.dart';
 
@@ -14,7 +14,7 @@ class WizardExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
 # 1. Create the field blocs
@@ -132,7 +132,7 @@ In our case, only when the last step is complete will we navigate to the success
 ''',
           ),
           TutorialText.sub('''
-Then you can use any widget with a `BlocBuilder`, but **flutter_bloc_form_plus** includes **StepperFormBlocBuilder** (respects reduce motion in 0.3.0).
+Then you can use any widget with a `BlocBuilder`, but **flutter_bloc_form_plus** includes **StepperFormBlocBuilder** (respects reduce motion in 0.3.2).
 
 Use **`sensitiveContent: true`** on password fields and **`animateStepTransitions`** on the stepper when needed.
 '''),

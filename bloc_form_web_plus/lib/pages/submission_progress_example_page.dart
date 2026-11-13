@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/submission_progress_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -20,7 +20,7 @@ class SubmissionProgressExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
 When you want to add a progress when it is submitting, you can emit a submitting state and assign to the progress parameter a value between 0.0 and 1.0 that will indicate the progress.       

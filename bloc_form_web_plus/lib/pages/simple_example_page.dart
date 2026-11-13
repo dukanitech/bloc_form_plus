@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/simple_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -50,7 +50,7 @@ class SimpleExamplePage extends StatelessWidget {
 
   TutorialStep _step0() {
     return TutorialStep(
-      title: 'Depend on bloc_form 0.3.0',
+      title: 'Depend on bloc_form 0.3.2',
       children: [
         TutorialText(TutorialPackageSetup.packageNote),
         CodeCard.pubspec(),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/conditional_fields_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -14,7 +14,7 @@ class ConditionalFieldsExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
 # 1. Create the field blocs

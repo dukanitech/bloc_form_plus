@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'package:bloc_form_web_plus/constants/style.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -89,7 +89,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
       ),
       _buildSubHeader(),
       _buildDrawerItem(
-        title: 'What\'s New 0.3.0',
+        title: 'What\'s New 0.3.2',
         routeName: RouteNames.whatsNewExample,
         iconData: Icons.new_releases,
       ),
@@ -196,7 +196,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ),
                     ),
                     Text(
-                      'v0.3.0 · Flutter 3.44',
+                      'v0.3.2 · Flutter 3.50',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white.withAlpha(200),
@@ -264,7 +264,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
     );
   }
 
-  _launchGitHubURL() async {
+  Future<void> _launchGitHubURL() async {
     const urlPath = 'https://github.com/dukanitech/bloc_form';
     final Uri url = Uri.parse(urlPath);
     if (await canLaunchUrl(url)) {

@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
 
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 }
 
 class AllFieldsForm extends StatelessWidget {
-  const AllFieldsForm({Key? key}) : super(key: key);
+  const AllFieldsForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +268,7 @@ class LoadingDialog extends StatelessWidget {
 
   static void hide(BuildContext context) => Navigator.pop(context);
 
-  const LoadingDialog({Key? key}) : super(key: key);
+  const LoadingDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -294,7 +294,7 @@ class LoadingDialog extends StatelessWidget {
 }
 
 class SuccessScreen extends StatelessWidget {
-  const SuccessScreen({Key? key}) : super(key: key);
+  const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

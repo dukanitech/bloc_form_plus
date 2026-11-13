@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'package:bloc_form_web_plus/examples/submission_error_to_field_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
@@ -16,7 +16,7 @@ class SubmissionErrorToFieldExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
 You can add an error to field bloc from anywhere using the `addFieldError` method.
@@ -37,7 +37,7 @@ For example when the username is not available and we want to show the error in 
 ''',
           ),
           TutorialText.sub('''
-Use **`FormBloc.clearErrors()`** to dismiss field errors without resetting values (Flutter 3.44 `Form.clearError` API).
+Use **`FormBloc.clearErrors()`** to dismiss field errors without resetting values (mirrors Flutter `Form.clearError`).
 '''),
           CodeCard.main(
             code: '''

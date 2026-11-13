@@ -1,3 +1,18 @@
+# 0.3.2
+
+Compatibility release for **Flutter 3.50** / **Dart 3.12** and **Equatable 3**. Aligned with `flutter_bloc_form_plus` **0.3.2**.
+
+## Changed
+
+* **`equatable`:** upgraded to **^3.0.0**.
+* **`bloc`:** upgraded to **^9.2.1**.
+* Removed obsolete **`EquatableMixin`** from `FormBlocState` subclasses (`FormBlocLoadFailed`, `FormBlocSubmitting`, `FormBlocSuccess`, `FormBlocFailure`, `FormBlocDeleteFailed`, `FormBlocDeleteSuccessful`, `FormBlocUpdatingFields`). Equality still comes from `FormBlocState extends Equatable`.
+
+## Notes
+
+* Apps that also depend on `equatable` directly should use **`equatable: ^3.0.0`**.
+* Publish **before** `flutter_bloc_form_plus` **0.3.2**.
+
 # 0.3.0
 
 Flutter **3.44.2** / Dart **3.12** release aligned with `flutter_bloc_form_plus` **0.3.0**.

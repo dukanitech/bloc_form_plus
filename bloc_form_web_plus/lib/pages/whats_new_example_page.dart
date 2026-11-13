@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/whats_new_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -8,17 +8,18 @@ class WhatsNewExamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExampleScaffold(
-      title: 'What\'s New 0.3.0',
+      title: 'What\'s New 0.3.2',
       demo: const DeviceScreen(app: WhatsNewForm()),
       code: const CodeScreen(codePath: 'lib/examples/whats_new_form.dart'),
       tutorial: TutorialScreen(
         children: [
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
-This example showcases **bloc_form 0.3.0** features aligned with **Flutter 3.44.2**:
+This example showcases **bloc_form 0.3.2** features aligned with **Flutter 3.50.0**:
 
+* **Equatable 3** compatibility (`bloc_form_plus` / `flutter_bloc_form_plus`)
 * **AdaptiveTextFieldBlocBuilder** / **CupertinoTextFieldBlocBuilder**
 * **SensitiveContent** for obscured password fields
 * **RadioGroupFieldBlocBuilder** (`RadioGroup` API)

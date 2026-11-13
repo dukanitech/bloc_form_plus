@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/widgets/code_card.dart';
 import 'package:bloc_form_web_plus/widgets/tutorial_text.dart';
 
-/// Shared tutorial snippets for **bloc_form_plus** / **flutter_bloc_form_plus** 0.3.0.
+/// Shared tutorial snippets for **bloc_form_plus** / **flutter_bloc_form_plus** 0.3.2.
 class TutorialPackageSetup {
   TutorialPackageSetup._();
 
@@ -12,9 +12,11 @@ import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
 ''';
 
   static const String packageNote = '''
-**bloc_form 0.3.0** targets **Flutter 3.44.2+** (Dart 3.12).
+**bloc_form 0.3.2** targets **Flutter 3.50.0+** (Dart 3.12) and uses **Equatable 3**.
 
-Add **`flutter_bloc_form_plus`** to `pubspec.yaml`. It depends on **`bloc_form_plus`** (form logic, validators, `FieldBloc.clearError()`, `FormBloc.clearErrors()`, and `FormBlocState.fields`).
+Add **`flutter_bloc_form_plus: ^0.3.2`** to `pubspec.yaml`. It depends on **`bloc_form_plus: ^0.3.2`** (form logic, validators, `FieldBloc.clearError()`, `FormBloc.clearErrors()`, and `FormBlocState.fields`).
+
+If your app also depends on `equatable` directly, use **`equatable: ^3.0.0`**.
 ''';
 
   static const String builders030 = '''

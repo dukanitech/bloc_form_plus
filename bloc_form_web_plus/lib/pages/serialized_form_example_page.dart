@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/serialized_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -14,7 +14,7 @@ class SerializedFormExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           const TutorialText('''
 It is very common to want to have all the values ​​of a form in JSON format, in the case of Dart language it would be Map<String, dynamic>.

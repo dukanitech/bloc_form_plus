@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:bloc_form_web_plus/examples/all_fields_form.dart';
 import 'package:bloc_form_web_plus/widgets/widgets.dart';
 
@@ -14,13 +14,13 @@ class AllFieldsExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: [
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.0)',
+            headerPrefix: '# Setup (bloc_form 0.3.2)',
           ),
           TutorialText(TutorialPackageSetup.builders030),
           const TutorialText('''
 This example lists the main **flutter_bloc_form_plus** builders in one form.
 
-**0.3.0 additions** in this demo:
+**0.3.2 additions** in this demo:
 * `AdaptiveTextFieldBlocBuilder`
 * `RadioGroupFieldBlocBuilder` (Flutter `RadioGroup` API)
 * TypeAhead via `TextFieldBlocBuilder` + `suggestions` on `TextFieldBloc`
