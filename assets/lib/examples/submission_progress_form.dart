@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
 import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
 import 'package:rxdart/rxdart.dart';
@@ -38,17 +38,17 @@ class SubmissionProgressFormBloc extends FormBloc<String, String> {
   void onSubmitting() async {
     debugPrint(username.value);
 
-    final int _currentUploadIndex = _fakeUploads.length;
+    final int currentUploadIndex = _fakeUploads.length;
     _fakeUploads.add(FakeUpload());
     _fakeUploadProgressSubscriptions.add(
-      _fakeUploads[_currentUploadIndex].uploadProgress.listen(
+      _fakeUploads[currentUploadIndex].uploadProgress.listen(
         (progress) {
-          if (!_fakeUploads[_currentUploadIndex].isCancelled) {
+          if (!_fakeUploads[currentUploadIndex].isCancelled) {
             emitSubmitting(progress: progress);
           }
         },
         onDone: () async {
-          if (!_fakeUploads[_currentUploadIndex]._isCancelled) {
+          if (!_fakeUploads[currentUploadIndex]._isCancelled) {
             await Future<void>.delayed(const Duration(milliseconds: 400));
             emitSuccess();
           }
