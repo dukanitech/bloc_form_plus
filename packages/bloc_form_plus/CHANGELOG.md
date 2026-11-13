@@ -1,3 +1,16 @@
+# 0.3.3
+
+Aligned with `flutter_bloc_form_plus` **0.3.3** (Flutter **3.50** Material / Cupertino UI packages).
+
+## Changed
+
+* Legacy entry point `bloc_form.dart` now declares `library;` and re-exports `bloc_form_plus.dart` (preferred import: `package:bloc_form_plus/bloc_form_plus.dart`).
+
+## Notes
+
+* No API or dependency changes from **0.3.2**.
+* Publish **before** `flutter_bloc_form_plus` **0.3.3**.
+
 # 0.3.2
 
 Compatibility release for **Flutter 3.50** / **Dart 3.12** and **Equatable 3**. Aligned with `flutter_bloc_form_plus` **0.3.2**.

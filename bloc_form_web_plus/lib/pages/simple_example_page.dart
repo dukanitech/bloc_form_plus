@@ -50,7 +50,7 @@ class SimpleExamplePage extends StatelessWidget {
 
   TutorialStep _step0() {
     return TutorialStep(
-      title: 'Depend on bloc_form 0.3.2',
+      title: 'Depend on bloc_form 0.3.3',
       children: [
         TutorialText(TutorialPackageSetup.packageNote),
         CodeCard.pubspec(),
@@ -64,12 +64,12 @@ class SimpleExamplePage extends StatelessWidget {
       children: [
         const TutorialText('''
     
-But also import material library.
+Also import Material via **`material_ui`** (Flutter 3.50+).
 '''),
         CodeCard.main(
           code: '''
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc_form_plus/flutter_bloc_form_plus.dart';
 ''',
         ),
       ],

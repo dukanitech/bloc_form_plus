@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                     'Separate the form state and Business Logic from the User Interface.'),
                 const SizedBox(height: 12),
                 Text(
-                  'v0.3.2 · Flutter 3.50.0',
+                  'v0.3.3 · Flutter 3.50.0',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                       child: const Text(
-                        'WHAT\'S NEW 0.3.2',
+                        'WHAT\'S NEW 0.3.3',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,

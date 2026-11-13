@@ -1,3 +1,32 @@
+# 0.3.3
+
+Flutter **3.50** Material / Cupertino UI package migration. Requires **`bloc_form_plus` ^0.3.3**.
+
+## Changed
+
+* Replaced `package:flutter/material.dart` with **`package:material_ui/material_ui.dart`** across field builders, themes, and utilities.
+* Replaced `package:flutter/cupertino.dart` with **`package:cupertino_ui/cupertino_ui.dart`** for Cupertino / adaptive builders.
+* Added dependencies: **`material_ui`**, **`cupertino_ui`** (resolved from the Flutter SDK on **3.50+**).
+* **`bloc_form_plus`:** upgraded to **^0.3.3**.
+* Legacy entry point `flutter_bloc_form.dart` declares `library;` and re-exports `flutter_bloc_form_plus.dart` (preferred import: `package:flutter_bloc_form_plus/flutter_bloc_form_plus.dart`).
+
+## Migration
+
+Apps on Flutter **3.50+** should import Material / Cupertino the same way:
+
+```dart
+import 'package:material_ui/material_ui.dart';
+import 'package:cupertino_ui/cupertino_ui.dart'; // if needed
+import 'package:flutter_bloc_form_plus/flutter_bloc_form_plus.dart';
+```
+
+`package:flutter/material.dart` and `package:flutter/cupertino.dart` are deprecated on Flutter 3.50.
+
+## Notes
+
+* Requires Flutter **3.50.0+**.
+* Publish **after** `bloc_form_plus` **0.3.3** is live on pub.dev.
+
 # 0.3.2
 
 Compatibility release for **Flutter 3.50** / **Dart 3.12** and **Equatable 3**. Requires **`bloc_form_plus` ^0.3.2**.

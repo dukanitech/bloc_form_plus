@@ -89,7 +89,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
       ),
       _buildSubHeader(),
       _buildDrawerItem(
-        title: 'What\'s New 0.3.2',
+        title: 'What\'s New 0.3.3',
         routeName: RouteNames.whatsNewExample,
         iconData: Icons.new_releases,
       ),
@@ -196,7 +196,7 @@ class _AppDrawerState extends State<AppDrawer> with RouteAware {
                       ),
                     ),
                     Text(
-                      'v0.3.2 · Flutter 3.50',
+                      'v0.3.3 · Flutter 3.50',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white.withAlpha(200),

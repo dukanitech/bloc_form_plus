@@ -14,7 +14,7 @@ class SerializedFormExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.2)',
+            headerPrefix: '# Setup (bloc_form 0.3.3)',
           ),
           const TutorialText('''
 It is very common to want to have all the values ​​of a form in JSON format, in the case of Dart language it would be Map<String, dynamic>.

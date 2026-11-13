@@ -10,7 +10,7 @@ Easy Form State Management using BLoC pattern. Separate the Form State and Busin
 
 ## Development
 
-This monorepo uses [FVM](https://fvm.app/) (Flutter **3.50.0**) and [Melos](https://melos.invertase.dev/). Packages are versioned **0.3.2**.
+This monorepo uses [FVM](https://fvm.app/) (Flutter **3.50.0**) and [Melos](https://melos.invertase.dev/). Packages are versioned **0.3.3**.
 
 From the repo root (`bloc_form/`):
 

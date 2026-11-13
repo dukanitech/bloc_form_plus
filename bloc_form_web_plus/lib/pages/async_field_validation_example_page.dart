@@ -15,7 +15,7 @@ class AsyncFieldValidationExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.2)',
+            headerPrefix: '# Setup (bloc_form 0.3.3)',
           ),
           const TutorialText('''
 # 1. Create the field bloc        
@@ -126,7 +126,7 @@ class AsyncFieldValidationFormBloc extends FormBloc<String, String> {
 
 If you want to show a circular progress indicator in the `TextFieldBlocBuilder` when it is being asynchronously validated, assign `SuffixButton.circularIndicatorWhenIsAsyncValidating`.
 
-In **0.3.2**, the builder also exposes loading state to assistive technologies via semantic labels automatically.
+In **0.3.3**, the builder also exposes loading state to assistive technologies via semantic labels automatically.
 '''),
           CodeCard.main(
             nestedPath: 'AsyncFieldValidationForm',

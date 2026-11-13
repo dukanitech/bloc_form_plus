@@ -98,7 +98,7 @@ class _WhatsNewFormState extends State<WhatsNewForm> {
             ),
             child: Scaffold(
               appBar: AppBar(
-                title: const Text('What\'s New 0.3.2'),
+                title: const Text('What\'s New 0.3.3'),
               ),
               body: FormBlocListener<WhatsNewFormBloc, String, String>(
                 onFailure: (context, state) {
@@ -113,7 +113,7 @@ class _WhatsNewFormState extends State<WhatsNewForm> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       _SectionHeader(
-                        title: 'Flutter 3.50.0 · bloc_form 0.3.2',
+                        title: 'Flutter 3.50.0 · bloc_form 0.3.3',
                         subtitle:
                             'Cupertino/adaptive fields, accessibility, RadioGroup, clearError APIs, and web keyboard improvements.',
                       ),

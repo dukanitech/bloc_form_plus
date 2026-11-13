@@ -14,13 +14,13 @@ class AllFieldsExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: [
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.2)',
+            headerPrefix: '# Setup (bloc_form 0.3.3)',
           ),
           TutorialText(TutorialPackageSetup.builders030),
           const TutorialText('''
 This example lists the main **flutter_bloc_form_plus** builders in one form.
 
-**0.3.2 additions** in this demo:
+**0.3.3 additions** in this demo:
 * `AdaptiveTextFieldBlocBuilder`
 * `RadioGroupFieldBlocBuilder` (Flutter `RadioGroup` API)
 * TypeAhead via `TextFieldBlocBuilder` + `suggestions` on `TextFieldBloc`

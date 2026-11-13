@@ -14,7 +14,7 @@ class ConditionalFieldsExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.2)',
+            headerPrefix: '# Setup (bloc_form 0.3.3)',
           ),
           const TutorialText('''
 # 1. Create the field blocs

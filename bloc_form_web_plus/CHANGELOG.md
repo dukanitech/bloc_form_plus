@@ -1,3 +1,24 @@
+# 0.3.3
+
+Web demo app aligned with **`bloc_form_plus` / `flutter_bloc_form_plus` 0.3.3** and Flutter **3.50.0**.
+
+## Documentation & tutorials
+
+* All tutorials, Code tabs, and home/drawer badges show **`flutter_bloc_form_plus: ^0.3.3`**.
+* **`TutorialPackageSetup`** documents **`material_ui` / `cupertino_ui`** imports for Flutter **3.50+**, Equatable **3**, and 0.3.x APIs.
+* **What's New 0.3.3** covers the Material / Cupertino UI package migration plus existing 0.3.x showcase features.
+
+## Changed
+
+* **App version:** **0.3.3** (matches published packages).
+* **`flutter_bloc_form_plus`:** **^0.3.3** (`material_ui` / `cupertino_ui`, `bloc_form_plus` **^0.3.3**).
+* FVM / demo target: Flutter **3.50.0**.
+
+## Demo UI
+
+* Home / drawer version badges: **v0.3.3 · Flutter 3.50.0**.
+* Examples import Material via **`package:material_ui/material_ui.dart`**.
+
 # 0.3.2
 
 Web demo app aligned with **`bloc_form_plus` / `flutter_bloc_form_plus` 0.3.2** and Flutter **3.50.0**.

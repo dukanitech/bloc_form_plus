@@ -16,7 +16,7 @@ class SubmissionErrorToFieldExamplePage extends StatelessWidget {
       tutorial: TutorialScreen(
         children: <Widget>[
           ...TutorialPackageSetup.dependencySteps(
-            headerPrefix: '# Setup (bloc_form 0.3.2)',
+            headerPrefix: '# Setup (bloc_form 0.3.3)',
           ),
           const TutorialText('''
 You can add an error to field bloc from anywhere using the `addFieldError` method.

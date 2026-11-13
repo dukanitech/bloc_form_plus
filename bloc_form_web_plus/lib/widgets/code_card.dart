@@ -132,7 +132,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc_form_plus: ^0.3.2${extraDependencies == null || extraDependencies.isEmpty ? '' : '\n$extraDependencies'}
+  material_ui: any
+  flutter_bloc_form_plus: ^0.3.3${extraDependencies == null || extraDependencies.isEmpty ? '' : '\n$extraDependencies'}
 ''',
         fileName: 'pubspec.yaml',
         showCopyButton: true,
