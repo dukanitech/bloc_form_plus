@@ -1,6 +1,3 @@
-// library bloc_form;
-
-export 'src/blocs/form/bloc_form.dart';
-export 'src/blocs/field/field_bloc.dart' hide FormBlocUtils;
-export 'src/blocs/bloc_form_observer.dart';
-export 'src/validators/field_bloc_validators.dart';
+/// Backwards-compatible entry point.
+/// Prefer `package:bloc_form_plus/bloc_form_plus.dart`.
+export 'bloc_form_plus.dart';

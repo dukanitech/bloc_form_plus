@@ -8,7 +8,7 @@ class TutorialPackageSetup {
 
   static const String importBlock = '''
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_form_plus/flutter_bloc_form.dart';
+import 'package:flutter_bloc_form_plus/flutter_bloc_form_plus.dart';
 ''';
 
   static const String packageNote = '''
